@@ -5,7 +5,7 @@ import { BigButton } from '..';
 
 describe('<BigButton  />', () => {
   it('should match snapshot', () => {
-    const loadingIndicator = render(<BigButton />);
+    const loadingIndicator = render(<BigButton>test</BigButton>);
     expect(loadingIndicator.container.firstChild).toMatchSnapshot();
   });
 });

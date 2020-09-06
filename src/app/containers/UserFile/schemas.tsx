@@ -2,6 +2,7 @@ import JSONSchemaBridge from 'uniforms-bridge-json-schema';
 import Ajv from 'ajv';
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
+import { LongTextField } from 'uniforms-antd';
 
 dayjs.extend(relativeTime);
 
@@ -14,13 +15,20 @@ const historyJsonSchema = {
       type: 'string',
       label: "Type d'antécédent",
       options: [
-        { label: 'familly', value: 'Antécédent familial' },
-        { label: 'surgical', value: 'Antécédent chirurgical' },
-        { label: 'medical', value: 'Antécédent medical' },
-        { label: 'lifestyle', value: 'Mode de vie' },
+        { value: 'familly', label: 'Antécédent familial' },
+        { value: 'surgical', label: 'Antécédent chirurgical' },
+        { value: 'medical', label: 'Antécédent medical' },
+        { value: 'lifestyle', label: 'Mode de vie' },
       ],
     },
-    description: { type: 'string' },
+    description: {
+      type: 'string',
+      label: 'Description',
+      uniforms: {
+        component: LongTextField,
+        rows: 3,
+      },
+    },
   },
 };
 

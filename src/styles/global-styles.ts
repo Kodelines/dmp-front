@@ -54,4 +54,9 @@ export const GlobalStyle = createGlobalStyle`
   .ant-modal-close-x {
     font-size: 18px;
   }
+
+  .ant-form-item-control-input .ant-select-single:not(.ant-select-customize-input) .ant-select-selector {
+    height: auto;
+    padding: 8px 11px;
+  }
 `;

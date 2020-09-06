@@ -41,22 +41,16 @@ const { Panel } = Collapse;
 
 interface Props {}
 
-const historyData = [
+interface HystoryItem {
+  description: string;
+}
+
+const historyData: Array<HystoryItem> = [
   {
-    title: 'Antécédent #2345',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-  },
-  {
-    title: 'Antécédent #5533',
-    description: 'Aenean lacinia bibendum nulla sed consectetur.',
-  },
-  {
-    title: 'Nullam id dolor id nibh ultricies',
     description:
       'Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.',
   },
   {
-    title: 'Maecenas faucibus mollis interdum.',
     description: 'Nullam quis risus eget urna mollis ornare vel eu leo.',
   },
 ];
@@ -78,6 +72,18 @@ export const UserFile = memo((props: Props) => {
   const [displayHospitalisation, setdisplayHospitalisation] = useState(false);
   const [displayExam, setDisplayExam] = useState(false);
 
+  const historyList = (data: Array<HystoryItem>) => (
+    <List
+      itemLayout="horizontal"
+      dataSource={data}
+      renderItem={item => (
+        <List.Item>
+          <List.Item.Meta description={item.description} />
+        </List.Item>
+      )}
+    />
+  );
+
   return (
     <>
       <Helmet>
@@ -87,7 +93,7 @@ export const UserFile = memo((props: Props) => {
       <Container>
         <Title level={4}>John Doe</Title>
 
-        <Descriptions bordered column={{ xs: 12 }}>
+        <Descriptions bordered size="middle" column={{ md: 2, xs: 1 }}>
           <Descriptions.Item label="Addresse">
             20 Avenue du Général de Gaulle 95100
           </Descriptions.Item>
@@ -109,72 +115,49 @@ export const UserFile = memo((props: Props) => {
                 Ajouter un antécédent
               </Button>
             </Row>
-            <StyledCollapse accordion defaultActiveKey={['1', '2', '3', '4']}>
+            <StyledCollapse defaultActiveKey={['1', '2']}>
               <Panel header="Antécédent familial" key="1">
-                <List
-                  itemLayout="horizontal"
-                  dataSource={historyData}
-                  renderItem={item => (
-                    <List.Item>
-                      <List.Item.Meta
-                        title={item.title}
-                        description={item.description}
-                      />
-                    </List.Item>
-                  )}
-                />
+                {historyList(historyData)}
               </Panel>
               <Panel header="Antécédent chirurgical" key="2">
-                <List
-                  itemLayout="horizontal"
-                  dataSource={historyData}
-                  renderItem={item => (
-                    <List.Item>
-                      <List.Item.Meta
-                        title={item.title}
-                        description={item.description}
-                      />
-                    </List.Item>
-                  )}
-                />
+                {historyList(historyData)}
               </Panel>
               <Panel header="Antécédent medical" key="3">
-                <List
-                  itemLayout="horizontal"
-                  dataSource={historyData}
-                  renderItem={item => (
-                    <List.Item>
-                      <List.Item.Meta
-                        title={item.title}
-                        description={item.description}
-                      />
-                    </List.Item>
-                  )}
-                />
+                {historyList(historyData)}
               </Panel>
               <Panel header="Mode de vie" key="4">
-                <List
-                  itemLayout="horizontal"
-                  dataSource={historyData}
-                  renderItem={item => (
-                    <List.Item>
-                      <List.Item.Meta
-                        title={item.title}
-                        description={item.description}
-                      />
-                    </List.Item>
-                  )}
-                />
+                {historyList(historyData)}
               </Panel>
             </StyledCollapse>
           </TabPane>
           <TabPane tab="Consultations" key="consultations">
+            <Row justify="end">
+              <Button
+                type="primary"
+                onClick={() => setDisplayConsultation(true)}
+              >
+                Ajouter une consultation
+              </Button>
+            </Row>
             Consultations
           </TabPane>
           <TabPane tab="Hospitalisations" key="hospitalisations">
+            <Row justify="end">
+              <Button
+                type="primary"
+                onClick={() => setdisplayHospitalisation(true)}
+              >
+                Ajouter une hospitalisation
+              </Button>
+            </Row>
             Hospitalisations
           </TabPane>
           <TabPane tab="Examens" key="examens">
+            <Row justify="end">
+              <Button type="primary" onClick={() => setDisplayExam(true)}>
+                Ajouter un examen
+              </Button>
+            </Row>
             Examens
           </TabPane>
         </StyledTabs>
@@ -268,5 +251,5 @@ const StyledTabs = styled(Tabs)`
 `;
 
 const StyledCollapse = styled(Collapse)`
-  margin-top: 40px;
+  margin-top: 20px;
 `;
