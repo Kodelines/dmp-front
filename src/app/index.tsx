@@ -22,16 +22,14 @@ import { SideMenu } from './components/SideMenu';
 import { AppHeader } from './components/AppHeader';
 import { Register } from './containers/Register/Loadable';
 import { Activate } from './containers/Activate/Loadable';
+import { CreateUser } from './containers/CreateUser/Loadable';
 
 const { Content } = Layout;
 
 export function App() {
   return (
     <>
-      <Helmet
-        titleTemplate="%s - React Boilerplate"
-        defaultTitle="React Boilerplate"
-      >
+      <Helmet titleTemplate="%s - DMP" defaultTitle="DMP">
         <meta name="description" content="A React Boilerplate application" />
       </Helmet>
 
@@ -47,6 +45,7 @@ export function App() {
               <AppHeader />
               <Content>
                 <Route exact path="/dashboard" component={Dashboard} />
+                <Route exact path="/adduser" component={CreateUser} />
               </Content>
             </Layout>
           </FullHeightLayout>

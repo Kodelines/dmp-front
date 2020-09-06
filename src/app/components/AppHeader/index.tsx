@@ -62,7 +62,7 @@ export const AppHeader = memo((props: Props) => {
             <div>
               <Space size="small">
                 <Avatar src="https://randomuser.me/api/portraits/men/91.jpg" />
-                <Text strong>James</Text>
+                <Text strong>Dr. Mbaye</Text>
                 <CaretDownOutlined />
               </Space>
             </div>

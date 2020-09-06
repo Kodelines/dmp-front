@@ -3,6 +3,7 @@ import { LoginState } from 'app/containers/Login/types';
 import { DashboardState } from 'app/containers/Dashboard/types';
 import { RegisterState } from 'app/containers/Register/types';
 import { ActivateState } from 'app/containers/Activate/types';
+import { CreateUserState } from 'app/containers/CreateUser/types';
 // [IMPORT NEW CONTAINERSTATE ABOVE] < Needed for generating containers seamlessly
 
 /* 
@@ -15,5 +16,6 @@ export interface RootState {
   dashboard?: DashboardState;
   register?: RegisterState;
   activate?: ActivateState;
+  createUser?: CreateUserState;
   // [INSERT NEW REDUCER KEY ABOVE] < Needed for generating containers seamlessly
 }
