@@ -46,4 +46,12 @@ export const GlobalStyle = createGlobalStyle`
   .ant-input-prefix {
     margin-right: 8px;
   }
+
+  .ant-modal-title {
+    font-size: 1.2rem;
+  }
+
+  .ant-modal-close-x {
+    font-size: 18px;
+  }
 `;

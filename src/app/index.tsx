@@ -23,6 +23,7 @@ import { AppHeader } from './components/AppHeader';
 import { Register } from './containers/Register/Loadable';
 import { Activate } from './containers/Activate/Loadable';
 import { CreateUser } from './containers/CreateUser/Loadable';
+import { UserFile } from './containers/UserFile/Loadable';
 
 const { Content } = Layout;
 
@@ -46,6 +47,7 @@ export function App() {
               <Content>
                 <Route exact path="/dashboard" component={Dashboard} />
                 <Route exact path="/adduser" component={CreateUser} />
+                <Route exact path="/userfile" component={UserFile} />
               </Content>
             </Layout>
           </FullHeightLayout>

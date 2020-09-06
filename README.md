@@ -1,4 +1,4 @@
-# RHBxx Front
+# MDP Front
 
 Using :
 - [CRA Boilerplate](https://cansahin.gitbook.io/react-boilerplate-cra-template/)

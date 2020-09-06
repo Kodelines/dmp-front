@@ -10662,7 +10662,7 @@ prompts@^2.0.1:
     kleur "^3.0.3"
     sisteransi "^1.0.4"
 
-prop-types@^15.5.10, prop-types@^15.5.7, prop-types@^15.5.9, prop-types@^15.6.0, prop-types@^15.6.2, prop-types@^15.7.2:
+prop-types@^15.5.10, prop-types@^15.5.9, prop-types@^15.6.0, prop-types@^15.6.2, prop-types@^15.7.2:
   version "15.7.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
   integrity sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==
@@ -13480,36 +13480,34 @@ unified@^7.0.0:
     vfile "^3.0.0"
     x-is-string "^0.1.0"
 
-uniforms-antd@2.6.7:
-  version "2.6.7"
-  resolved "https://registry.yarnpkg.com/uniforms-antd/-/uniforms-antd-2.6.7.tgz#c37ab243ad1963410bce2a922639e47248010e17"
-  integrity sha512-/yjnP/+JsSDIhKoHfnvXThH7htC9wXNUcETplh45U79CgBGUQuIrsmAt4ruCw+lXT5Gsn8Ek6v4ecnLu6qwC3w==
+uniforms-antd@3.0.0-rc.3:
+  version "3.0.0-rc.3"
+  resolved "https://registry.yarnpkg.com/uniforms-antd/-/uniforms-antd-3.0.0-rc.3.tgz#0554c53bf8bf02941827203896474f104ad3aa60"
+  integrity sha512-WmaDikaE7axcYvjAXtECAiwGS9WWBUXUEbizWJlxhRKt4MEhj6WwK5EkF4mE//rgOqHfHNkPRwH5DQa78Qh/nA==
   dependencies:
     invariant "^2.0.0"
     lodash "^4.0.0"
-    prop-types "^15.5.7"
     tslib "^1.10.0"
-    uniforms "^2.6.7"
+    uniforms "^3.0.0-rc.3"
     warning "^4.0.0"
 
-uniforms-bridge-json-schema@2.6.7:
-  version "2.6.7"
-  resolved "https://registry.yarnpkg.com/uniforms-bridge-json-schema/-/uniforms-bridge-json-schema-2.6.7.tgz#93d225df65d987e52220a75f3fb0338a7d798a94"
-  integrity sha512-65JwLOhZrUN8dYxJbHIGg44kZP36gZt836/tUFo+c38r7Mk/X0KlQzzgqZWdon6AfPMOLl8+skxd5ah1TxawSw==
+uniforms-bridge-json-schema@3.0.0-rc.3:
+  version "3.0.0-rc.3"
+  resolved "https://registry.yarnpkg.com/uniforms-bridge-json-schema/-/uniforms-bridge-json-schema-3.0.0-rc.3.tgz#0723cddae947f0744b56d1b9e4b2439b58f2e202"
+  integrity sha512-idNiMFu2tM8mdy5F0lW35fscDkRas2e0AwSpiQGoJ5kID2CVdWu0ZEDn11eXenrzoUfAXDaiFvFLqmHVJBbUtw==
   dependencies:
     invariant "^2.0.0"
     lodash "^4.0.0"
     tslib "^1.10.0"
-    uniforms "^2.6.7"
+    uniforms "^3.0.0-rc.3"
 
-uniforms@2.6.7, uniforms@^2.6.7:
-  version "2.6.7"
-  resolved "https://registry.yarnpkg.com/uniforms/-/uniforms-2.6.7.tgz#eabf3d9682fea57b28c9948b4feff4fab2fee760"
-  integrity sha512-Ry490QGJYtSelO1iDbKWUsuJTUabNrgF/X7Jasdi7B+5s6NuEX8mJBBsWgJqBheMNUW1ahB56JA0Flnay4kpeg==
+uniforms@3.0.0-rc.3, uniforms@^3.0.0-rc.3:
+  version "3.0.0-rc.3"
+  resolved "https://registry.yarnpkg.com/uniforms/-/uniforms-3.0.0-rc.3.tgz#8f1608d08070c3a6d9127162a21885661323ccaf"
+  integrity sha512-UlmXox4YuSa5x/FqTxw7EtLIWYmnuW0QIBGh2RrkXWAssUYxu/XVlLfoW23MOGgT2fP8rdYWTeGlRy8MIEA6IQ==
   dependencies:
     invariant "^2.0.0"
     lodash "^4.0.0"
-    prop-types "^15.5.7"
     tslib "^1.10.0"
 
 union-value@^1.0.0:

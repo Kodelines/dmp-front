@@ -10,21 +10,21 @@ const createJsonSchema = {
   type: 'object',
   size: 'large',
   properties: {
-    first_name: { type: 'string' },
-    last_name: { type: 'string' },
-    address: { type: 'string' },
-    phone_number: { type: 'string' },
-    identity_number: { type: 'string' },
-    type_document: { type: 'string' },
-    sexe: { type: 'string' },
-    situation_matrimoniale: { type: 'string' },
+    first_name: { type: 'string', label: 'Prénom' },
+    last_name: { type: 'string', label: 'Nom' },
+    address: { type: 'string', label: 'Adresse' },
+    phone_number: { type: 'string', label: 'Téléphone' },
+    identity_number: { type: 'string', label: "N° d'identité" },
+    type_document: { type: 'string', label: 'Type de document' },
+    sexe: { type: 'string', label: 'Sexe' },
+    situation_matrimoniale: { type: 'string', label: 'Situation matrimoniale' },
   },
 };
 
 const ajv = new Ajv({ allErrors: true, useDefaults: true });
 
 function createValidator(schema: object) {
-  const validator = ajv.compile(createJsonSchema);
+  const validator = ajv.compile(schema);
 
   return (model: object) => {
     validator(model);

@@ -9,8 +9,9 @@ import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
 import { useSelector, useDispatch } from 'react-redux';
 import styled from 'styled-components/macro';
-import dayjs from 'dayjs';
+// import dayjs from 'dayjs';
 import 'dayjs/locale/fr';
+import { useHistory } from 'react-router-dom';
 
 import { UserAddOutlined } from '@ant-design/icons';
 
@@ -43,6 +44,10 @@ export const Dashboard = memo((props: Props) => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { t, i18n } = useTranslation();
 
+  let history = useHistory();
+
+  const handleClick = () => history.push('/userfile');
+
   // const today = dayjs().locale('fr').format('dddd LL').toUpperCase();
   // const [notifPinned, setnotifPinned] = useState(false);
 
@@ -55,7 +60,7 @@ export const Dashboard = memo((props: Props) => {
       <MainContent>
         <SearchBox
           placeholder="Rechercher un dossier"
-          onSearch={value => console.log(value)}
+          onSearch={handleClick}
           enterButton
         />
         <Row>
@@ -65,7 +70,7 @@ export const Dashboard = memo((props: Props) => {
               href="/adduser"
               icon={<UserAddOutlined />}
             >
-              Ajouter un usager
+              Ajouter un patient
             </BigButton>
           </Col>
         </Row>
