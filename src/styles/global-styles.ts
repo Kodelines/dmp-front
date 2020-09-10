@@ -59,4 +59,12 @@ export const GlobalStyle = createGlobalStyle`
     height: auto;
     padding: 8px 11px;
   }
+
+  .ant-list-vertical .ant-list-item {
+    margin-bottom: 20px;
+  }
+
+  .ant-list-split .ant-list-item {
+    border-bottom: 1px solid #ddd;
+  }
 `;

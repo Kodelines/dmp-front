@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import styled from 'styled-components/macro';
-import { Row, Button, Modal, List, Col } from 'antd';
+import { Row, Button, Modal, List, Col, Descriptions } from 'antd';
 import { AutoForm } from 'uniforms-antd';
 import dayjs from 'dayjs';
+import relativeTime from 'dayjs/plugin/relativeTime';
 
 import { examinationSchema } from './schemas';
 import 'dayjs/locale/fr';
@@ -11,6 +12,7 @@ import capitalize from 'utils/capitalize';
 var localizedFormat = require('dayjs/plugin/localizedFormat');
 dayjs.extend(localizedFormat);
 dayjs.locale('fr');
+dayjs.extend(relativeTime);
 
 interface ExaminationItem {
   id: string;
@@ -143,10 +145,8 @@ export const Examination = () => {
   const [displayExam, setDisplayExam] = useState(false);
 
   //Fri Jun 26 2020 13:46:56
-  const parseDate = date =>
-    capitalize(
-      dayjs(date, 'MMM DD YYYY hh:mm:ss', 'en').locale('fr').format('llll'),
-    );
+  const parseDate = date => capitalize(dayjs(date).locale('fr').format('llll'));
+  const timeago = date => dayjs(date).locale('fr').fromNow();
 
   return (
     <>
@@ -164,7 +164,7 @@ export const Examination = () => {
               <Row>
                 <Col span={24}>
                   <StyledMeta
-                    title={parseDate(item.date)}
+                    title={`${parseDate(item.date)} - ${timeago(item.date)}`}
                     description={item.hopital}
                   />
                 </Col>
@@ -175,24 +175,38 @@ export const Examination = () => {
                     <b>Médécin : </b> {item.medecin}
                   </p>
                 </Col>
-                {item.content && (
-                  <Col span={24}>
-                    {item.content.map(element => (
-                      <p>
-                        <b>{element.key} : </b> {element.value}
-                      </p>
-                    ))}
-                  </Col>
-                )}
-                {item.commentaire && (
+              </Row>
+              {item.commentaire && (
+                <Row>
                   <Col span={24}>
                     <p>
                       <b>Commentaire : </b>
                       {item.commentaire}
                     </p>
                   </Col>
-                )}
-              </Row>
+                </Row>
+              )}
+              {item.content && (
+                <Row>
+                  <Col span={24}>
+                    <b>Examens : </b>
+                    <br />
+                    <br />
+                    <Descriptions
+                      bordered
+                      size="middle"
+                      column={{ md: 1, xs: 1 }}
+                    >
+                      {item.content.map(element => (
+                        <Descriptions.Item label={element.key}>
+                          {element.value}
+                        </Descriptions.Item>
+                      ))}
+                    </Descriptions>
+                    <br />
+                  </Col>
+                </Row>
+              )}
             </List.Item>
           )}
         />
