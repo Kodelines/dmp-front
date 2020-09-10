@@ -25,7 +25,7 @@ import { Button } from 'antd';
 
 const activateBack = require('assets/images/activate.png');
 
-const { Paragraph, Title, Text } = Typography;
+const { Paragraph, Title } = Typography;
 
 interface Props {}
 

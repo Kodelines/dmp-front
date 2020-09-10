@@ -54,7 +54,7 @@ const hospitalizationJsonSchema = {
   },
 };
 
-const examenJsonSchema = {
+const examinationJsonSchema = {
   title: 'Block',
   type: 'object',
   size: 'large',
@@ -90,7 +90,7 @@ export const hospitalizationSchema = new JSONSchemaBridge(
   createValidator(hospitalizationJsonSchema),
 );
 
-export const examenSchema = new JSONSchemaBridge(
-  examenJsonSchema,
-  createValidator(examenJsonSchema),
+export const examinationSchema = new JSONSchemaBridge(
+  examinationJsonSchema,
+  createValidator(examinationJsonSchema),
 );

@@ -40,6 +40,7 @@ export const Container = styled.div<ContainerProps>`
   flex-direction: ${props => props.direction ?? 'column'};
   padding-right: 15px;
   padding-left: 15px;
+  padding-bottom: 40px;
   margin-right: auto;
   margin-left: auto;
   margin-top: 20px;
@@ -59,13 +60,13 @@ export const Container = styled.div<ContainerProps>`
 
   @media (min-width: 992px) {
     & {
-      max-width: 960px;
+      max-width: 720px;
     }
   }
 
   @media (min-width: 1200px) {
     & {
-      max-width: 1140px;
+      max-width: 920px;
     }
   }
 `;

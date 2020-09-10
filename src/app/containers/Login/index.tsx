@@ -14,7 +14,7 @@ import { useInjectReducer, useInjectSaga } from 'utils/redux-injectors';
 import { reducer, sliceKey } from './slice';
 import { selectLogin } from './selectors';
 import { loginSaga } from './saga';
-import { Row, Col, Typography, Form, Input, Switch, Button } from 'antd';
+import { Typography, Form, Input, Switch, Button } from 'antd';
 import colors from 'styles/colors';
 
 interface Props {}

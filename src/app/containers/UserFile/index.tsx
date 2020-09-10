@@ -28,12 +28,10 @@ import {
 } from 'antd';
 // import { BigButton } from 'app/components/BigButton';
 // import { FileDoneOutlined, FileSearchOutlined } from '@ant-design/icons';
-import {
-  historySchema,
-  consultationSchema,
-  hospitalizationSchema,
-  examenSchema,
-} from './schemas';
+import { historySchema } from './schemas';
+import { Consultations } from './consultations';
+import { Hospitalisation } from './hospitalisations';
+import { Examination } from './examinations';
 
 const { Title } = Typography;
 const { TabPane } = Tabs;
@@ -68,9 +66,6 @@ export const UserFile = memo((props: Props) => {
   const { t, i18n } = useTranslation();
 
   const [displayHistory, setdisplayHistory] = useState(false);
-  const [displayConsultation, setDisplayConsultation] = useState(false);
-  const [displayHospitalisation, setdisplayHospitalisation] = useState(false);
-  const [displayExam, setDisplayExam] = useState(false);
 
   const historyList = (data: Array<HystoryItem>) => (
     <List
@@ -108,7 +103,7 @@ export const UserFile = memo((props: Props) => {
           </Descriptions.Item>
         </Descriptions>
 
-        <StyledTabs defaultActiveKey="history">
+        <StyledTabs defaultActiveKey="history" animated={false}>
           <TabPane tab="Antécédents" key="history">
             <Row justify="end">
               <Button type="primary" onClick={() => setdisplayHistory(true)}>
@@ -131,75 +126,15 @@ export const UserFile = memo((props: Props) => {
             </StyledCollapse>
           </TabPane>
           <TabPane tab="Consultations" key="consultations">
-            <Row justify="end">
-              <Button
-                type="primary"
-                onClick={() => setDisplayConsultation(true)}
-              >
-                Ajouter une consultation
-              </Button>
-            </Row>
-            Consultations
+            <Consultations />
           </TabPane>
           <TabPane tab="Hospitalisations" key="hospitalisations">
-            <Row justify="end">
-              <Button
-                type="primary"
-                onClick={() => setdisplayHospitalisation(true)}
-              >
-                Ajouter une hospitalisation
-              </Button>
-            </Row>
-            Hospitalisations
+            <Hospitalisation />
           </TabPane>
           <TabPane tab="Examens" key="examens">
-            <Row justify="end">
-              <Button type="primary" onClick={() => setDisplayExam(true)}>
-                Ajouter un examen
-              </Button>
-            </Row>
-            Examens
+            <Examination />
           </TabPane>
         </StyledTabs>
-
-        {/* <Row>
-          <Col span={6}>
-            <BigButton
-              type="primary"
-              icon={<FileDoneOutlined />}
-              onClick={() => setdisplayHistory(true)}
-            >
-              Ajouter un antécédent
-            </BigButton>
-          </Col>
-          <Col span={6}>
-            <BigButton
-              type="primary"
-              icon={<FileSearchOutlined />}
-              onClick={() => setDisplayConsultation(true)}
-            >
-              Ajouter une consultation
-            </BigButton>
-          </Col>
-          <Col span={6}>
-            <BigButton
-              type="primary"
-              icon={<FileSearchOutlined />}
-              onClick={() => setdisplayHospitalisation(true)}
-            >
-              Ajouter une hospitalisation
-            </BigButton>
-          </Col>
-          <Col span={6}>
-            <BigButton
-              type="primary"
-              icon={<FileSearchOutlined />}
-              onClick={() => setDisplayExam(true)}
-            >
-              Ajouter un examen
-            </BigButton>
-          </Col>
-        </Row> */}
 
         <Modal
           title="Ajouter un antécédent"
@@ -209,36 +144,6 @@ export const UserFile = memo((props: Props) => {
           onCancel={() => setdisplayHistory(false)}
         >
           <AutoForm schema={historySchema} />
-        </Modal>
-
-        <Modal
-          title="Ajouter une consultation"
-          visible={displayConsultation}
-          width="640px"
-          centered
-          onCancel={() => setDisplayConsultation(false)}
-        >
-          <AutoForm schema={consultationSchema} />
-        </Modal>
-
-        <Modal
-          title="Ajouter une hospitalisation"
-          visible={displayHospitalisation}
-          width="640px"
-          centered
-          onCancel={() => setdisplayHospitalisation(false)}
-        >
-          <AutoForm schema={hospitalizationSchema} />
-        </Modal>
-
-        <Modal
-          title="Ajouter un examen"
-          visible={displayExam}
-          width="640px"
-          centered
-          onCancel={() => setDisplayExam(false)}
-        >
-          <AutoForm schema={examenSchema} />
         </Modal>
       </Container>
     </>
