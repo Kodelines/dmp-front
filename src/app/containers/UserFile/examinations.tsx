@@ -1,7 +1,14 @@
 import React, { useState } from 'react';
 import styled from 'styled-components/macro';
-import { Row, Button, Modal, List, Col, Descriptions } from 'antd';
-import { AutoForm } from 'uniforms-antd';
+import { Row, Button, Modal, List, Col, Descriptions, Collapse } from 'antd';
+import {
+  AutoForm,
+  AutoFields,
+  ListField,
+  ListItemField,
+  NestField,
+  AutoField,
+} from 'uniforms-antd';
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 
@@ -26,24 +33,9 @@ interface ExaminationItem {
 
 const data: Array<ExaminationItem> = [
   {
-    id: '97160c8a',
-    date: '2017-07-01T16:27:08Z',
-    hopital: 'Hermann, Daugherty and Bailey',
-    medecin: 'Terese Bilam',
-    examen_type: 'Echographie obstétricale',
-    commentaire:
-      'Curabitur at ipsum ac tellus semper interdum. Mauris ullamcorper purus sit amet nulla. Quisque arcu libero, rutrum ac, lobortis vel, dapibus at, diam.',
-    content: [
-      {
-        key: 'ac nulla',
-        value: 'Eros vestibulum ac est lacinia nisi',
-      },
-    ],
-  },
-  {
     id: '43b80d6c',
     date: '2020-06-24T04:48:08Z',
-    hopital: 'Cole LLC',
+    hopital: 'Hopital Cole',
     medecin: 'Reyna Kohter',
     examen_type: 'Echographie obstétricale',
     commentaire:
@@ -66,7 +58,7 @@ const data: Array<ExaminationItem> = [
   {
     id: '50928cf4',
     date: '2018-04-03T16:56:19Z',
-    hopital: 'Mann, Johns and Harvey',
+    hopital: 'Hopital Mann, Johns and Harvey',
     medecin: 'Florian Epton',
     examen_type: 'Echographie obstétricale',
     commentaire: 'Fusce consequat. Nulla nisl. Nunc nisl.',
@@ -96,7 +88,7 @@ const data: Array<ExaminationItem> = [
   {
     id: '7ad6ff6c',
     date: '2017-10-17T06:45:29Z',
-    hopital: 'Marvin-Jaskolski',
+    hopital: 'Hopital Marvin-Jaskolski',
     medecin: 'Abbie Clemendot',
     examen_type: 'Radiologie',
     commentaire:
@@ -122,9 +114,24 @@ const data: Array<ExaminationItem> = [
     ],
   },
   {
+    id: '97160c8a',
+    date: '2017-07-01T16:27:08Z',
+    hopital: 'Clinique Hermann, Daugherty and Bailey',
+    medecin: 'Terese Bilam',
+    examen_type: 'Echographie obstétricale',
+    commentaire:
+      'Curabitur at ipsum ac tellus semper interdum. Mauris ullamcorper purus sit amet nulla. Quisque arcu libero, rutrum ac, lobortis vel, dapibus at, diam.',
+    content: [
+      {
+        key: 'ac nulla',
+        value: 'Eros vestibulum ac est lacinia nisi',
+      },
+    ],
+  },
+  {
     id: 'a7b5f5af',
     date: '2018-02-08T21:24:25Z',
-    hopital: 'Corwin, Cassin and Ward',
+    hopital: 'Clinique Corwin, Cassin and Ward',
     medecin: 'Haven Archbould',
     examen_type: 'Radiologie',
     commentaire: 'Fusce consequat. Nulla nisl. Nunc nisl.',
@@ -152,80 +159,112 @@ export const Examination = () => {
     <>
       <Row justify="end">
         <Button type="primary" onClick={() => setDisplayExam(true)}>
-          Ajouter une hospitalisation
+          Ajouter un examen
         </Button>
       </Row>
       <Row>
-        <List
-          itemLayout="vertical"
-          dataSource={data}
-          renderItem={item => (
-            <List.Item key={item.id}>
-              <Row>
-                <Col span={24}>
-                  <StyledMeta
-                    title={`${parseDate(item.date)} - ${timeago(item.date)}`}
-                    description={item.hopital}
-                  />
-                </Col>
-              </Row>
-              <Row>
-                <Col span={24}>
-                  <p>
-                    <b>Médécin : </b> {item.medecin}
-                  </p>
-                </Col>
-              </Row>
-              {item.commentaire && (
+        <Col span={24}>
+          <StyledCollapse>
+            {data.map(item => (
+              <Collapse.Panel
+                header={
+                  <PanelTitle>
+                    <div>
+                      {parseDate(item.date)} - {timeago(item.date)}
+                    </div>
+                    <div>{item.hopital}</div>
+                  </PanelTitle>
+                }
+                key={item.id}
+              >
                 <Row>
                   <Col span={24}>
                     <p>
-                      <b>Commentaire : </b>
-                      {item.commentaire}
+                      <b>Médécin : </b> {item.medecin}
                     </p>
                   </Col>
                 </Row>
-              )}
-              {item.content && (
-                <Row>
-                  <Col span={24}>
-                    <b>Examens : </b>
-                    <br />
-                    <br />
-                    <Descriptions
-                      bordered
-                      size="middle"
-                      column={{ md: 1, xs: 1 }}
-                    >
-                      {item.content.map(element => (
-                        <Descriptions.Item label={element.key}>
-                          {element.value}
-                        </Descriptions.Item>
-                      ))}
-                    </Descriptions>
-                    <br />
-                  </Col>
-                </Row>
-              )}
-            </List.Item>
-          )}
-        />
+                {item.commentaire && (
+                  <Row>
+                    <Col span={24}>
+                      <p>
+                        <b>Commentaire : </b>
+                        {item.commentaire}
+                      </p>
+                    </Col>
+                  </Row>
+                )}
+                {item.content && (
+                  <Row>
+                    <Col span={24}>
+                      <b>Examens : </b>
+                      <br />
+                      <br />
+                      <Descriptions
+                        bordered
+                        size="middle"
+                        column={{ md: 1, xs: 1 }}
+                      >
+                        {item.content.map(element => (
+                          <Descriptions.Item label={element.key}>
+                            {element.value}
+                          </Descriptions.Item>
+                        ))}
+                      </Descriptions>
+                      <br />
+                    </Col>
+                  </Row>
+                )}
+              </Collapse.Panel>
+            ))}
+          </StyledCollapse>
+        </Col>
       </Row>
       <Modal
         title="Ajouter un examen"
         visible={displayExam}
-        width="640px"
+        width="720px"
         centered
         onCancel={() => setDisplayExam(false)}
       >
-        <AutoForm schema={examinationSchema} />
+        <AutoForm schema={examinationSchema}>
+          <AutoFields fields={['examen_type', 'commentaire']} />
+          <ListField
+            label="Examens"
+            name="content"
+            initialCount={1}
+            wrapperCol={12}
+          >
+            <ListItemField name="$">
+              <NestField name="" label=" ">
+                <Row gutter={24}>
+                  <Col span={8}>
+                    <AutoField name="key" size="small" />
+                  </Col>
+                  <Col span={16}>
+                    <AutoField name="value" size="small" />
+                  </Col>
+                </Row>
+              </NestField>
+            </ListItemField>
+          </ListField>
+        </AutoForm>
       </Modal>
     </>
   );
 };
 
-const StyledMeta = styled(List.Item.Meta)`
+const StyledMeta = styled.div`
   .ant-list-item-meta-title {
     font-size: 16px;
   }
+`;
+
+const StyledCollapse = styled(Collapse)`
+  margin-top: 30px;
+`;
+
+const PanelTitle = styled.div`
+  display: flex;
+  flex-direction: column;
 `;

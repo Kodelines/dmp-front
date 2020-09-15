@@ -59,8 +59,54 @@ const examinationJsonSchema = {
   type: 'object',
   size: 'large',
   properties: {
-    examen_type: { type: 'string' },
-    commentaire: { type: 'string' },
+    examen_type: {
+      type: 'string',
+      label: "Type d'examen",
+      items: {
+        type: 'string',
+      },
+      options: [
+        { label: 'Congenital cataract', value: 1 },
+        { label: 'Benign carcinoid', value: 2 },
+        { label: 'Subluxation', value: 3 },
+        { label: 'Contusion', value: 4 },
+        { label: 'Underdosing', value: 5 },
+        { label: 'Commodo Vehicula', value: 6 },
+      ],
+    },
+    commentaire: {
+      type: 'string',
+      uniforms: {
+        component: LongTextField,
+        rows: 3,
+      },
+    },
+    content: {
+      type: 'array',
+      label: 'Examens',
+      // 'content.$': {
+      //   type: Object,
+      // },
+      // 'content.$.key': {
+      //   type: 'string',
+      // },
+      // 'content.$.value': {
+      //   type: 'string',
+      // },
+      items: {
+        type: 'object',
+        properties: {
+          key: {
+            type: 'string',
+            label: 'Clé',
+          },
+          value: {
+            type: 'string',
+            label: 'Valeur',
+          },
+        },
+      },
+    },
   },
 };
 

@@ -17,6 +17,8 @@ import { loginSaga } from './saga';
 import { Typography, Form, Input, Switch, Button } from 'antd';
 import colors from 'styles/colors';
 
+const backImage = require('assets/images/login.jpg');
+
 interface Props {}
 
 const { Title, Paragraph } = Typography;
@@ -158,6 +160,10 @@ const LeftPanel = styled.div`
 const FlexibleContainer = styled.div`
   display: flex;
   flex-direction: column;
+
+  .ant-btn {
+    padding-top: 12px;
+  }
 `;
 
 const RightPanel = styled.div`
@@ -165,7 +171,7 @@ const RightPanel = styled.div`
   flex: 4;
   height: 100vh;
   background-color: ${colors.secondary};
-  background-image: url(${backgroundImage});
+  background-image: url(${backImage});
   background-size: cover;
   background-position: center center;
   position: relative;
