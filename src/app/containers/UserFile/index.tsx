@@ -51,20 +51,20 @@ export const UserFile = memo((props: Props) => {
         <Title level={4}>Moussa Diop</Title>
 
         <StyledTabs defaultActiveKey="informations" animated={false}>
-          <TabPane tab="Informations" key="informations">
+          <TabPane tab="Informations générales" key="informations">
             <Informations />
           </TabPane>
           <TabPane tab="Antécédents" key="history">
             <Histories />
+          </TabPane>
+          <TabPane tab="Examens généraux" key="examens">
+            <Examination />
           </TabPane>
           <TabPane tab="Consultations" key="consultations">
             <Consultations />
           </TabPane>
           <TabPane tab="Hospitalisations" key="hospitalisations">
             <Hospitalisation />
-          </TabPane>
-          <TabPane tab="Examens" key="examens">
-            <Examination />
           </TabPane>
         </StyledTabs>
       </Container>
