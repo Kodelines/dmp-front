@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components/macro';
-import { Row, Button, Modal, List, Col, Descriptions, Collapse } from 'antd';
+import { Row, Button, Modal, Col, Descriptions, Collapse } from 'antd';
 import {
   AutoForm,
   AutoFields,
@@ -254,11 +254,11 @@ export const Examination = () => {
   );
 };
 
-const StyledMeta = styled.div`
-  .ant-list-item-meta-title {
-    font-size: 16px;
-  }
-`;
+// const StyledMeta = styled.div`
+//   .ant-list-item-meta-title {
+//     font-size: 16px;
+//   }
+// `;
 
 const StyledCollapse = styled(Collapse)`
   margin-top: 30px;
