@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Collapse, List, Modal } from 'antd';
+import { Button, Collapse, List, Modal, Row } from 'antd';
 import styled from 'styled-components/macro';
 import { AutoForm } from 'uniforms-antd';
 import { historySchema } from './schemas';
@@ -96,6 +96,11 @@ export const Histories = () => {
 
   return (
     <>
+      <Row justify="end">
+        <Button type="primary" onClick={() => setdisplayHistory(true)}>
+          Ajouter un antécédent
+        </Button>
+      </Row>
       <div>
         <StyledCollapse defaultActiveKey={['familial']}>
           <Panel header="Antécédent familial" key="familial">
