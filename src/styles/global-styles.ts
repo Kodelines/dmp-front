@@ -67,4 +67,9 @@ export const GlobalStyle = createGlobalStyle`
   .ant-list-split .ant-list-item {
     border-bottom: 1px solid #ddd;
   }
+
+  .d-block {
+    display: block;
+    width: 100%;
+  }
 `;
