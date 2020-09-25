@@ -18,7 +18,7 @@ const historyJsonSchema = {
         { value: 'familly', label: 'Antécédent familial' },
         { value: 'surgical', label: 'Antécédent chirurgical' },
         { value: 'medical', label: 'Antécédent medical' },
-        { value: 'lifestyle', label: 'Mode de vie' },
+        { value: 'mode_de_vie', label: 'Mode de vie' },
       ],
     },
     description: {

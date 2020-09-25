@@ -15,7 +15,7 @@ import { historySchema } from './schemas';
 const { Panel } = Collapse;
 
 interface HystoryItem {
-  type: 'medical' | 'familial' | 'lifestyle' | 'chirurgical' | string;
+  type: 'medical' | 'familial' | 'mode_de_vie' | 'chirurgical' | string;
   description: string;
   date: string;
   hopital: string;
@@ -40,14 +40,14 @@ const historyData: Array<HystoryItem> = [
     hopital: 'Heller and Sons',
   },
   {
-    type: 'lifestyle',
+    type: 'mode_de_vie',
     description: 'Nulla tellus. In sagittis dui vel nisl. Duis ac nibh.',
     date: '09/08/2020',
     medecin: 'Stella Tiptaft',
     hopital: 'Christiansen and Sons',
   },
   {
-    type: 'lifestyle',
+    type: 'mode_de_vie',
     description:
       'Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros. Vestibulum ac est lacinia nisi venenatis tristique.',
     date: '10/20/2019',
@@ -71,7 +71,7 @@ const historyData: Array<HystoryItem> = [
     hopital: 'Waters-Krajcik',
   },
   {
-    type: 'lifestyle',
+    type: 'mode_de_vie',
     description:
       'Integer non velit. Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque.',
     date: '01/11/2020',
@@ -79,7 +79,7 @@ const historyData: Array<HystoryItem> = [
     hopital: 'Kessler-Boyer',
   },
   {
-    type: 'lifestyle',
+    type: 'mode_de_vie',
     description:
       'Aliquam erat volutpat. In congue. Etiam justo. Etiam pretium iaculis justo. In hac habitasse platea dictumst.',
     date: '04/19/2020',
@@ -111,7 +111,7 @@ const historyData: Array<HystoryItem> = [
     hopital: 'Abernathy Group',
   },
   {
-    type: 'lifestyle',
+    type: 'mode_de_vie',
     description:
       'Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet. Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui.',
     date: '03/26/2020',
@@ -169,8 +169,8 @@ export const Histories = () => {
           <Panel header="Antécédent medical" key="medical">
             {historyList('medical')}
           </Panel>
-          <Panel header="Mode de vie" key="lifestyle">
-            {historyList('lifestyle')}
+          <Panel header="Mode de vie" key="mode_de_vie">
+            {historyList('mode_de_vie')}
           </Panel>
         </StyledCollapse>
       </div>
