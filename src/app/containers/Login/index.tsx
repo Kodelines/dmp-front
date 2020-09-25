@@ -87,11 +87,13 @@ export const Login = memo((props: Props) => {
             <Form
               name="basic"
               initialValues={{ remember: true }}
+              layout="vertical"
               // onFinish={onFinish}
               // onFinishFailed={onFinishFailed}
             >
               <Form.Item
                 name="username"
+                label="Adresse email"
                 rules={[
                   {
                     required: true,
@@ -103,6 +105,7 @@ export const Login = memo((props: Props) => {
               </Form.Item>
               <Form.Item
                 name="password"
+                label="Mot de passe"
                 rules={[
                   {
                     required: true,
