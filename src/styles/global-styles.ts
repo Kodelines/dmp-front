@@ -72,4 +72,12 @@ export const GlobalStyle = createGlobalStyle`
     display: block;
     width: 100%;
   }
+
+  .mt-4 {
+    margin-top: 40px;
+  }
+
+  .ant-timeline-item-content {
+    top: -7px;
+  }
 `;
