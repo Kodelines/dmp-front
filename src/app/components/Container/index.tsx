@@ -31,6 +31,7 @@ interface ContainerProps {
   justify?: JustifyValues;
   align?: AlignValues;
   direction?: Directions;
+  noPadding?: boolean;
 }
 
 export const Container = styled.div<ContainerProps>`
@@ -40,10 +41,11 @@ export const Container = styled.div<ContainerProps>`
   flex-direction: ${props => props.direction ?? 'column'};
   padding-right: 15px;
   padding-left: 15px;
-  padding-bottom: 40px;
+  padding-top: ${props => (props.noPadding ? '0px' : '40px')};
+  padding-bottom: ${props => (props.noPadding ? '0px' : '40px')};
   margin-right: auto;
   margin-left: auto;
-  margin-top: 20px;
+  /* margin-top: 20px; */
   width: 100%;
 
   @media (min-width: 576px) {

@@ -24,6 +24,7 @@ import { Register } from './containers/Register/Loadable';
 import { Activate } from './containers/Activate/Loadable';
 import { CreateUser } from './containers/CreateUser/Loadable';
 import { UserFile } from './containers/UserFile/Loadable';
+import { HospitalisationDetails } from './containers/HospitalisationDetails/Loadable';
 
 const { Content } = Layout;
 
@@ -47,7 +48,12 @@ export function App() {
               <Content>
                 <Route exact path="/dashboard" component={Dashboard} />
                 <Route exact path="/adduser" component={CreateUser} />
-                <Route exact path="/userfile" component={UserFile} />
+                <Route exact path="/userfile/:id" component={UserFile} />
+                <Route
+                  exact
+                  path="/userfile/:userId/hospitalisation/:id"
+                  component={HospitalisationDetails}
+                />
               </Content>
             </Layout>
           </FullHeightLayout>

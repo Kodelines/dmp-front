@@ -46,7 +46,7 @@ export const Dashboard = memo((props: Props) => {
 
   let history = useHistory();
 
-  const handleClick = () => history.push('/userfile');
+  const handleClick = () => history.push('/userfile/123456');
 
   // const today = dayjs().locale('fr').format('dddd LL').toUpperCase();
   // const [notifPinned, setnotifPinned] = useState(false);
@@ -57,7 +57,7 @@ export const Dashboard = memo((props: Props) => {
         <title>Dashboard</title>
         <meta name="description" content="Description of Dashboard" />
       </Helmet>
-      <MainContent>
+      <Container>
         <SearchBox
           placeholder="Rechercher un dossier"
           onSearch={handleClick}
@@ -74,14 +74,10 @@ export const Dashboard = memo((props: Props) => {
             </BigButton>
           </Col>
         </Row>
-      </MainContent>
+      </Container>
     </>
   );
 });
-
-const MainContent = styled(Container)`
-  padding-top: 40px;
-`;
 
 const SearchBox = styled(Search)`
   margin-bottom: 40px;

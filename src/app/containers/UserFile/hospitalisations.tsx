@@ -8,6 +8,13 @@ import dayjs from 'dayjs';
 import { hospitalizationSchema } from './schemas';
 import 'dayjs/locale/fr';
 import capitalize from 'utils/capitalize';
+import {
+  FileSearchOutlined,
+  EditFilled,
+  DeleteFilled,
+} from '@ant-design/icons';
+import { ListActionButton } from 'app/components/ListActionButton';
+import { useParams } from 'react-router-dom';
 
 var localizedFormat = require('dayjs/plugin/localizedFormat');
 dayjs.extend(localizedFormat);
@@ -59,6 +66,7 @@ const data: Array<HospitalisationItem> = [
 ];
 
 export const Hospitalisation = () => {
+  let { id } = useParams();
   const [displayHospitalisation, setdisplayHospitalisation] = useState(false);
 
   //Fri Jun 26 2020 13:46:56
@@ -76,10 +84,22 @@ export const Hospitalisation = () => {
       </Row>
       <Row>
         <List
+          className="d-block"
           itemLayout="vertical"
           dataSource={data}
           renderItem={item => (
-            <List.Item key={item.id}>
+            <List.Item
+              key={item.id}
+              actions={[
+                <ListActionButton
+                  text="Voir les détails"
+                  icon={<FileSearchOutlined />}
+                  href={`/userfile/${id}/hospitalisation/${item.id}`}
+                />,
+                <ListActionButton text="Modifier" icon={<EditFilled />} />,
+                <ListActionButton danger icon={<DeleteFilled />} />,
+              ]}
+            >
               <Row>
                 <Col span={24}>
                   <StyledMeta
@@ -101,14 +121,14 @@ export const Hospitalisation = () => {
                     </p>
                   </Col>
                 )}
-                {item.commentaire && (
+                {/* {item.commentaire && (
                   <Col span={24}>
                     <p>
                       <b>Commentaire : </b>
                       {item.commentaire}
                     </p>
                   </Col>
-                )}
+                )} */}
               </Row>
             </List.Item>
           )}

@@ -8,7 +8,7 @@ import React, { memo } from 'react';
 import { Helmet } from 'react-helmet-async';
 // import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import styled from 'styled-components/macro';
+// import styled from 'styled-components/macro';
 import { AutoForm } from 'uniforms-antd';
 import { Container } from 'app/components/Container';
 import { Row, Col, Typography } from 'antd';
@@ -41,20 +41,16 @@ export const CreateUser = memo((props: Props) => {
         <title>Nouveau Usager</title>
         <meta name="description" content="Description of create user" />
       </Helmet>
-      <MainContent>
+      <Container>
         <Title level={3}>Nouveau usager</Title>
         <Row gutter={36}>
           <Col span={12}>
             <AutoForm schema={userSchema} showInlineError />
           </Col>
         </Row>
-      </MainContent>
+      </Container>
     </>
   );
 });
 
 // const Div = styled.div``;
-
-const MainContent = styled(Container)`
-  padding-top: 40px;
-`;
