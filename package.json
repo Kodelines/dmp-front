@@ -68,7 +68,7 @@
     "uniforms-bridge-json-schema": "3.0.0-rc.3"
   },
   "scripts": {
-    "start": "PORT=8000 onchange --initial --kill \"craco.config.js\" -- craco start",
+    "start": "PORT=1800 onchange --initial --kill \"craco.config.js\" -- craco start",
     "build": "craco build",
     "test": "craco test",
     "eject": "react-scripts eject",
