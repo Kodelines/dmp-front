@@ -5,6 +5,7 @@ import { RegisterState } from 'app/containers/Register/types';
 import { ActivateState } from 'app/containers/Activate/types';
 import { CreateUserState } from 'app/containers/CreateUser/types';
 import { UserFileState } from 'app/containers/UserFile/types';
+import { HospitalisationDetailsState } from 'app/containers/HospitalisationDetails/types';
 // [IMPORT NEW CONTAINERSTATE ABOVE] < Needed for generating containers seamlessly
 
 /* 
@@ -19,5 +20,6 @@ export interface RootState {
   activate?: ActivateState;
   createUser?: CreateUserState;
   userFile?: UserFileState;
+  hospitalisationDetails?: HospitalisationDetailsState;
   // [INSERT NEW REDUCER KEY ABOVE] < Needed for generating containers seamlessly
 }

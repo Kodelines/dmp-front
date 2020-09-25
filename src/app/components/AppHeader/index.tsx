@@ -53,7 +53,7 @@ export const AppHeader = memo((props: Props) => {
 
   return (
     <MainHeader>
-      <Container align="flex-end">
+      <Container align="flex-end" noPadding>
         <Space size="large" align="center" direction="horizontal">
           <Badge count={5}>
             <IconBell />
