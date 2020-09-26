@@ -77,4 +77,8 @@ export const GlobalStyle = createGlobalStyle`
     display: block;
     width: 100%;
   }
+
+  .ant-page-header {
+    padding: 16px 0px;
+  }
 `;

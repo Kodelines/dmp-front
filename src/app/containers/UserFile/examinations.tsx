@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
-import styled from 'styled-components/macro';
+// import styled from 'styled-components/macro';
 import {
   Row,
   Button,
   Modal,
   Col,
-  // Descriptions,
-  Collapse,
   Timeline,
-  Tabs,
   Typography,
+  Select,
+  Divider,
 } from 'antd';
 import {
   AutoForm,
@@ -25,6 +24,13 @@ import relativeTime from 'dayjs/plugin/relativeTime';
 import { examinationSchema } from './schemas';
 import 'dayjs/locale/fr';
 import capitalize from 'utils/capitalize';
+import { ListActionButton } from 'app/components/ListActionButton';
+import {
+  DeleteFilled,
+  EditFilled,
+  FileSearchOutlined,
+} from '@ant-design/icons';
+import { useParams } from 'react-router-dom';
 
 var localizedFormat = require('dayjs/plugin/localizedFormat');
 dayjs.extend(localizedFormat);
@@ -159,6 +165,7 @@ const data: Array<ExaminationItem> = [
 ];
 
 export const Examination = () => {
+  let { id } = useParams<{ id: string }>();
   const [displayExam, setDisplayExam] = useState(false);
 
   //Fri Jun 26 2020 13:46:56
@@ -176,11 +183,27 @@ export const Examination = () => {
 
   return (
     <>
-      <Row justify="end">
+      <Row justify="space-between" align="middle">
+        <Col span={6}>
+          <Select
+            showSearch
+            style={{ width: 280 }}
+            placeholder="Filtrer par type d'examen"
+            filterOption={(input, option) =>
+              option!!.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
+            }
+          >
+            <Select.Option value="echographie">
+              Echographie obstétricale
+            </Select.Option>
+            <Select.Option value="radiologie">Radiologie</Select.Option>
+          </Select>
+        </Col>
         <Button type="primary" onClick={() => setDisplayExam(true)}>
           Ajouter un examen
         </Button>
       </Row>
+      <Divider />
       <Row>
         {/* <Tabs tabPosition="left" style={{ height: 420 }}> */}
         <Timeline>
@@ -200,25 +223,13 @@ export const Examination = () => {
                 </Typography.Text>
               </div>
               <div>
-                <StyledCollapse>
-                  <Collapse.Panel header="Détails" key={it.id}>
-                    <Row>
-                      <Col span={24}>
-                        <p>A la demande de Dr: {it.medecin}</p>
-                      </Col>
-                      {it.commentaire && (
-                        <Row>
-                          <Col span={24}>
-                            <p>
-                              <b>Commentaire : </b>
-                              {it.commentaire}
-                            </p>
-                          </Col>
-                        </Row>
-                      )}
-                    </Row>
-                  </Collapse.Panel>
-                </StyledCollapse>
+                <ListActionButton
+                  text="Voir les détails"
+                  icon={<FileSearchOutlined />}
+                  href={`/userfile/${id}/examen/${it.id}`}
+                />
+                <ListActionButton text="Modifier" icon={<EditFilled />} />
+                <ListActionButton danger icon={<DeleteFilled />} />
               </div>
             </Timeline.Item>
           ))}
@@ -257,18 +268,3 @@ export const Examination = () => {
     </>
   );
 };
-
-// const StyledMeta = styled.div`
-//   .ant-list-item-meta-title {
-//     font-size: 16px;
-//   }
-// `;
-
-const StyledCollapse = styled(Collapse)`
-  margin-top: 30px;
-`;
-
-const PanelTitle = styled.div`
-  display: flex;
-  flex-direction: column;
-`;

@@ -25,6 +25,7 @@ import { Activate } from './containers/Activate/Loadable';
 import { CreateUser } from './containers/CreateUser/Loadable';
 import { UserFile } from './containers/UserFile/Loadable';
 import { HospitalisationDetails } from './containers/HospitalisationDetails/Loadable';
+import { ExaminationDetails } from './containers/ExaminationDetails/Loadable';
 
 const { Content } = Layout;
 
@@ -49,6 +50,11 @@ export function App() {
                 <Route exact path="/dashboard" component={Dashboard} />
                 <Route exact path="/adduser" component={CreateUser} />
                 <Route exact path="/userfile/:id" component={UserFile} />
+                <Route
+                  exact
+                  path="/userfile/:userId/examen/:id"
+                  component={ExaminationDetails}
+                />
                 <Route
                   exact
                   path="/userfile/:userId/hospitalisation/:id"
