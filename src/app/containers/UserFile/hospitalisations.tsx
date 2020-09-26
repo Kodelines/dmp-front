@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components/macro';
-import { Row, Button, Modal, List, Col } from 'antd';
+import { Row, Button, Modal, List, Col, Timeline, Typography } from 'antd';
 import { AutoForm } from 'uniforms-antd';
 import shortid from 'shortid';
 import dayjs from 'dayjs';
@@ -82,57 +82,33 @@ export const Hospitalisation = () => {
           Ajouter une hospitalisation
         </Button>
       </Row>
-      <Row>
-        <List
-          className="d-block"
-          itemLayout="vertical"
-          dataSource={data}
-          renderItem={item => (
-            <List.Item
-              key={item.id}
-              actions={[
+      <Row className="mt-4">
+        <Timeline mode="left">
+          {data.map(item => (
+            <Timeline.Item key={item.id}>
+              <Typography.Text type="secondary">
+                {parseDate(item.date)}
+                <br />
+              </Typography.Text>
+              <Typography.Text>
+                {item.hopital}
+                <br />
+              </Typography.Text>
+              <Typography.Text>
+                <b>Motif : </b> {item.motif_hospitalisation}
+              </Typography.Text>
+              <div>
                 <ListActionButton
                   text="Voir les détails"
                   icon={<FileSearchOutlined />}
                   href={`/userfile/${id}/hospitalisation/${item.id}`}
-                />,
-                <ListActionButton text="Modifier" icon={<EditFilled />} />,
-                <ListActionButton danger icon={<DeleteFilled />} />,
-              ]}
-            >
-              <Row>
-                <Col span={24}>
-                  <StyledMeta
-                    title={parseDate(item.date)}
-                    description={item.hopital}
-                  />
-                </Col>
-              </Row>
-              <Row>
-                <Col span={24}>
-                  <p>
-                    <b>Médécin : </b> {item.medecin}
-                  </p>
-                </Col>
-                {item.motif_hospitalisation && (
-                  <Col span={24}>
-                    <p>
-                      <b>Motif : </b> {item.motif_hospitalisation}
-                    </p>
-                  </Col>
-                )}
-                {/* {item.commentaire && (
-                  <Col span={24}>
-                    <p>
-                      <b>Commentaire : </b>
-                      {item.commentaire}
-                    </p>
-                  </Col>
-                )} */}
-              </Row>
-            </List.Item>
-          )}
-        />
+                />
+                <ListActionButton text="Modifier" icon={<EditFilled />} />
+                <ListActionButton danger icon={<DeleteFilled />} />
+              </div>
+            </Timeline.Item>
+          ))}
+        </Timeline>
       </Row>
       <Modal
         title="Ajouter une hospitalisation"
@@ -146,9 +122,3 @@ export const Hospitalisation = () => {
     </>
   );
 };
-
-const StyledMeta = styled(List.Item.Meta)`
-  .ant-list-item-meta-title {
-    font-size: 16px;
-  }
-`;

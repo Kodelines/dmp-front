@@ -32,6 +32,8 @@ export const ListActionButton = memo(
 
 const StyledButton = styled(Button)`
   padding: 0;
+  margin-right: 20px;
+  margin-top: 10px;
 `;
 
 const StyledIcon = styled.span`
