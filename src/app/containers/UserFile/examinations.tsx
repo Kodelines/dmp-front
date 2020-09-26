@@ -1,6 +1,16 @@
 import React, { useState } from 'react';
 import styled from 'styled-components/macro';
-import { Row, Button, Modal, Col, Descriptions, Collapse } from 'antd';
+import {
+  Row,
+  Button,
+  Modal,
+  Col,
+  // Descriptions,
+  Collapse,
+  Timeline,
+  Tabs,
+  Typography,
+} from 'antd';
 import {
   AutoForm,
   AutoFields,
@@ -155,6 +165,15 @@ export const Examination = () => {
   const parseDate = date => capitalize(dayjs(date).locale('fr').format('llll'));
   const timeago = date => dayjs(date).locale('fr').fromNow();
 
+  const grouped = new Map<string, Array<ExaminationItem>>();
+  data.forEach(item => {
+    const key = item.examen_type;
+    if (!grouped.has(key)) grouped.set(key, []);
+    grouped.get(key)!!.push(item);
+  });
+
+  console.log('keys : ', grouped.keys());
+
   return (
     <>
       <Row justify="end">
@@ -163,62 +182,47 @@ export const Examination = () => {
         </Button>
       </Row>
       <Row>
-        <Col span={24}>
-          <StyledCollapse>
-            {data.map(item => (
-              <Collapse.Panel
-                header={
-                  <PanelTitle>
-                    <div>
-                      {parseDate(item.date)} - {timeago(item.date)}
-                    </div>
-                    <div>{item.hopital}</div>
-                  </PanelTitle>
-                }
-                key={item.id}
-              >
-                <Row>
-                  <Col span={24}>
-                    <p>
-                      <b>Médécin : </b> {item.medecin}
-                    </p>
-                  </Col>
-                </Row>
-                {item.commentaire && (
-                  <Row>
-                    <Col span={24}>
-                      <p>
-                        <b>Commentaire : </b>
-                        {item.commentaire}
-                      </p>
-                    </Col>
-                  </Row>
-                )}
-                {item.content && (
-                  <Row>
-                    <Col span={24}>
-                      <b>Examens : </b>
-                      <br />
-                      <br />
-                      <Descriptions
-                        bordered
-                        size="middle"
-                        column={{ md: 1, xs: 1 }}
-                      >
-                        {item.content.map(element => (
-                          <Descriptions.Item label={element.key}>
-                            {element.value}
-                          </Descriptions.Item>
-                        ))}
-                      </Descriptions>
-                      <br />
-                    </Col>
-                  </Row>
-                )}
-              </Collapse.Panel>
-            ))}
-          </StyledCollapse>
-        </Col>
+        {/* <Tabs tabPosition="left" style={{ height: 420 }}> */}
+        <Timeline>
+          {data.map(it => (
+            <Timeline.Item>
+              <div>
+                <Typography.Text>
+                  {parseDate(it.date)} - {timeago(it.date)}
+                </Typography.Text>
+              </div>
+              <div>
+                <Typography.Text type="secondary">{it.hopital}</Typography.Text>
+              </div>
+              <div>
+                <Typography.Text strong>
+                  Examen : {it.examen_type}
+                </Typography.Text>
+              </div>
+              <div>
+                <StyledCollapse>
+                  <Collapse.Panel header="Détails" key={it.id}>
+                    <Row>
+                      <Col span={24}>
+                        <p>A la demande de Dr: {it.medecin}</p>
+                      </Col>
+                      {it.commentaire && (
+                        <Row>
+                          <Col span={24}>
+                            <p>
+                              <b>Commentaire : </b>
+                              {it.commentaire}
+                            </p>
+                          </Col>
+                        </Row>
+                      )}
+                    </Row>
+                  </Collapse.Panel>
+                </StyledCollapse>
+              </div>
+            </Timeline.Item>
+          ))}
+        </Timeline>
       </Row>
       <Modal
         title="Ajouter un examen"

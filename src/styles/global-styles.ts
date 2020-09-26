@@ -72,4 +72,9 @@ export const GlobalStyle = createGlobalStyle`
     display: block;
     width: 100%;
   }
+
+  .ant-timeline {
+    display: block;
+    width: 100%;
+  }
 `;
