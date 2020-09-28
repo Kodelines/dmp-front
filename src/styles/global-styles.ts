@@ -11,7 +11,7 @@ export const GlobalStyle = createGlobalStyle`
   body.fontLoaded {
     font-family: "Fira Sans", "Helvetica Neue For Number", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
-  
+
   .ant-menu-inline, .ant-menu-vertical, .ant-menu-vertical-left {
     border-right: none;
     overflow-x: hidden;
@@ -80,5 +80,13 @@ export const GlobalStyle = createGlobalStyle`
 
   .ant-page-header {
     padding: 16px 0px;
+  }
+
+  .mt-4 {
+    margin-top: 40px;
+  }
+
+  .ant-timeline-item-content {
+    top: -7px;
   }
 `;
