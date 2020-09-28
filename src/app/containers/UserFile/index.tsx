@@ -57,7 +57,7 @@ export const UserFile = memo((props: Props) => {
           <TabPane tab="Antécédents" key="history">
             <Histories />
           </TabPane>
-          <TabPane tab="Examens généraux" key="examens">
+          <TabPane tab="Examens" key="examens">
             <Examination />
           </TabPane>
           <TabPane tab="Consultations" key="consultations">
