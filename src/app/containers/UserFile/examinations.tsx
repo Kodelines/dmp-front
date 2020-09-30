@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-// import styled from 'styled-components/macro';
+import styled from 'styled-components/macro';
 import {
   Row,
   Button,
@@ -9,7 +9,6 @@ import {
   Select,
   Divider,
   List,
-  DatePicker,
 } from 'antd';
 import {
   AutoForm,
@@ -185,7 +184,7 @@ export const Examination = () => {
   return (
     <>
       <Row align="middle" gutter={32}>
-        <Col span={6}>
+        <Col span={8}>
           <Select
             showSearch
             style={{ width: 280 }}
@@ -201,14 +200,15 @@ export const Examination = () => {
           </Select>
         </Col>
         <Col span={6}>
-          <input
+          <StyledDatePicker
             type="date"
-            value={new Date().toDateString()}
+            pattern="\d{2}-\d{2}-\d{4}"
+            // value={new Date().toDateString()}
             min="2018-01-01"
-            max="2018-12-31"
+            max={new Date().toDateString()}
           />
         </Col>
-        <Col span={6} offset={6}>
+        <Col span={6} offset={4}>
           <Button type="primary" onClick={() => setDisplayExam(true)}>
             Ajouter un examen
           </Button>
@@ -284,3 +284,19 @@ export const Examination = () => {
     </>
   );
 };
+
+const StyledDatePicker = styled.input`
+  position: relative;
+  background-color: #fff;
+  border: 1px solid #d9d9d9;
+  border-radius: 0.4125rem;
+  transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  width: 100%;
+  height: 32px;
+  padding: 0 11px;
+  color: #000000d9;
+
+  &[value=''] {
+    color: #c2c2c2;
+  }
+`;
