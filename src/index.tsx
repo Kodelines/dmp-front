@@ -14,6 +14,8 @@ import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'connected-react-router';
 import * as serviceWorker from 'serviceWorker';
 import { history } from 'utils/history';
+import frFR from 'antd/es/locale/fr_FR';
+import 'dayjs/locale/fr';
 import 'sanitize.css/sanitize.css';
 import 'antd/dist/antd.less';
 
@@ -28,6 +30,7 @@ import FontFaceObserver from 'fontfaceobserver';
 
 // Initialize languages
 import './locales/i18n';
+import { ConfigProvider } from 'antd';
 
 // Create redux store with history
 const store = configureAppStore(history);
@@ -44,15 +47,17 @@ interface Props {
   Component: typeof App;
 }
 const ConnectedApp = ({ Component }: Props) => (
-  <Provider store={store}>
-    <ConnectedRouter history={history}>
-      <HelmetProvider>
-        <React.StrictMode>
-          <Component />
-        </React.StrictMode>
-      </HelmetProvider>
-    </ConnectedRouter>
-  </Provider>
+  <ConfigProvider locale={frFR}>
+    <Provider store={store}>
+      <ConnectedRouter history={history}>
+        <HelmetProvider>
+          <React.StrictMode>
+            <Component />
+          </React.StrictMode>
+        </HelmetProvider>
+      </ConnectedRouter>
+    </Provider>
+  </ConfigProvider>
 );
 const render = (Component: typeof App) => {
   ReactDOM.render(<ConnectedApp Component={Component} />, MOUNT_NODE);

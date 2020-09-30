@@ -89,4 +89,11 @@ export const GlobalStyle = createGlobalStyle`
   .ant-timeline-item-content {
     top: -7px;
   }
+
+  .ant-form-item-control-input
+  .ant-select-single:not(.ant-select-customize-input)
+  .ant-select-selector
+  {
+    padding: 12px 11px;
+  }
 `;
