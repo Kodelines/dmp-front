@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
-// import styled from 'styled-components/macro';
+import styled from 'styled-components/macro';
 import {
   Row,
   Button,
   Modal,
   Col,
-  Timeline,
   Typography,
   Select,
   Divider,
+  List,
 } from 'antd';
 import {
   AutoForm,
@@ -183,8 +183,8 @@ export const Examination = () => {
 
   return (
     <>
-      <Row justify="space-between" align="middle">
-        <Col span={6}>
+      <Row align="middle" gutter={32}>
+        <Col span={8}>
           <Select
             showSearch
             style={{ width: 280 }}
@@ -199,41 +199,58 @@ export const Examination = () => {
             <Select.Option value="radiologie">Radiologie</Select.Option>
           </Select>
         </Col>
-        <Button type="primary" onClick={() => setDisplayExam(true)}>
-          Ajouter un examen
-        </Button>
+        <Col span={6}>
+          <StyledDatePicker
+            type="date"
+            pattern="\d{2}-\d{2}-\d{4}"
+            // value={new Date().toDateString()}
+            min="2018-01-01"
+            max={new Date().toDateString()}
+          />
+        </Col>
+        <Col span={6} offset={4}>
+          {/* <Button type="primary" href={`/userfile/${id}/examination/add`}> */}
+          <Button type="primary" onClick={() => setDisplayExam(true)}>
+            Ajouter un examen
+          </Button>
+        </Col>
       </Row>
       <Divider />
       <Row>
-        {/* <Tabs tabPosition="left" style={{ height: 420 }}> */}
-        <Timeline>
-          {data.map(it => (
-            <Timeline.Item>
-              <div>
-                <Typography.Text>
-                  {parseDate(it.date)} - {timeago(it.date)}
-                </Typography.Text>
-              </div>
-              <div>
-                <Typography.Text type="secondary">{it.hopital}</Typography.Text>
-              </div>
-              <div>
-                <Typography.Text strong>
-                  Examen : {it.examen_type}
-                </Typography.Text>
-              </div>
-              <div>
-                <ListActionButton
-                  text="Voir les détails"
-                  icon={<FileSearchOutlined />}
-                  href={`/userfile/${id}/examen/${it.id}`}
-                />
-                <ListActionButton text="Modifier" icon={<EditFilled />} />
-                <ListActionButton danger icon={<DeleteFilled />} />
-              </div>
-            </Timeline.Item>
-          ))}
-        </Timeline>
+        <Col span={24}>
+          <List
+            itemLayout="vertical"
+            dataSource={data}
+            renderItem={it => (
+              <List.Item key={it.id}>
+                <div>
+                  <Typography.Text>
+                    {parseDate(it.date)} - {timeago(it.date)}
+                  </Typography.Text>
+                </div>
+                <div>
+                  <Typography.Text type="secondary">
+                    {it.hopital}
+                  </Typography.Text>
+                </div>
+                <div>
+                  <Typography.Text strong>
+                    Examen : {it.examen_type}
+                  </Typography.Text>
+                </div>
+                <div>
+                  <ListActionButton
+                    text="Voir les détails"
+                    icon={<FileSearchOutlined />}
+                    href={`/userfile/${id}/examen/${it.id}`}
+                  />
+                  <ListActionButton text="Modifier" icon={<EditFilled />} />
+                  <ListActionButton danger icon={<DeleteFilled />} />
+                </div>
+              </List.Item>
+            )}
+          />
+        </Col>
       </Row>
       <Modal
         title="Ajouter un examen"
@@ -268,3 +285,19 @@ export const Examination = () => {
     </>
   );
 };
+
+const StyledDatePicker = styled.input`
+  position: relative;
+  background-color: #fff;
+  border: 1px solid #d9d9d9;
+  border-radius: 0.4125rem;
+  transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  width: 100%;
+  height: 32px;
+  padding: 0 11px;
+  color: #000000d9;
+
+  &[value=''] {
+    color: #c2c2c2;
+  }
+`;

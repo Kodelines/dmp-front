@@ -104,4 +104,9 @@ export const GlobalStyle = createGlobalStyle`
   .ant-list-vertical .ant-list-item-meta-title {
     font-size: 16px !important;
   }
+
+  .ant-select-selection-search {
+    display: flex;
+    align-items: center;
+  }
 `;

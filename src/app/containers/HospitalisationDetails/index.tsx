@@ -7,7 +7,7 @@
 import React, { memo } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useSelector, useDispatch } from 'react-redux';
-import styled from 'styled-components/macro';
+// import styled from 'styled-components/macro';
 
 import { useInjectReducer, useInjectSaga } from 'utils/redux-injectors';
 import { reducer, sliceKey } from './slice';
@@ -191,4 +191,4 @@ export const HospitalisationDetails = memo((props: Props) => {
   );
 });
 
-const NotesDescriptions = styled(Descriptions)``;
+// const NotesDescriptions = styled(Descriptions)``;
