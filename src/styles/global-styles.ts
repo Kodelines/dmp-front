@@ -96,4 +96,8 @@ export const GlobalStyle = createGlobalStyle`
   {
     padding: 12px 11px;
   }
+
+  .ant-list-vertical .ant-list-item-meta-title {
+    font-size: 16px;
+  }
 `;
