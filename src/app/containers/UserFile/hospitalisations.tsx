@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import styled from 'styled-components/macro';
-import { Row, Button, Modal, List, Col, Timeline, Typography } from 'antd';
+import { Row, Button, Modal, Timeline, Typography } from 'antd';
 import { AutoForm } from 'uniforms-antd';
 import shortid from 'shortid';
 import dayjs from 'dayjs';
@@ -66,7 +65,7 @@ const data: Array<HospitalisationItem> = [
 ];
 
 export const Hospitalisation = () => {
-  let { id } = useParams();
+  let { id } = useParams<{ id: string }>();
   const [displayHospitalisation, setdisplayHospitalisation] = useState(false);
 
   //Fri Jun 26 2020 13:46:56
