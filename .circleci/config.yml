@@ -6,9 +6,11 @@ jobs:
     working_directory: /var/www/dmp.milliapps.xyz/
     steps:
       - checkout
-      - run: mkdir -p /var/www/dmp.milliapps.xyz/artifacts
-      - run: npm install
-      - run: npm test
-      - store_artifacts:
-          path: /var/www/dmp.milliapps.xyz/artifacts
-          
+      - run: yarn test
+      - run: npm build
+    deployment:
+      production:
+        branch: master
+        commands:
+          - scp -r master/* root@178.128.161.183:/var/www/dmp.milliapps.xyz/
+      
