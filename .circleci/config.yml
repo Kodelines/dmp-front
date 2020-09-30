@@ -1,7 +1,7 @@
 version: 2.17
 jobs:
   build:
-    working_directory: /tmp
+    working_directory: ~/repo
     docker:
       - image: circleci/node:10.15.2
     steps:
@@ -22,8 +22,9 @@ jobs:
           name: Creating Artifacts
           command: |
             yarn build
+            mkdir -p ~/repo/artifacts
       - store_artifacts:
-          path: /tmp/artifacts
+          path: ~/repo/artifacts
 
   deploy:
     machine:
@@ -35,7 +36,7 @@ jobs:
           command: |
             yarn install
             yarn build:prod
-            scp -r /tmp/build/* root@178.128.161.183:var/www/dmp.milliapps.xyz/
+            scp -r ~/repo/build/* root@178.128.161.183:var/www/dmp.milliapps.xyz/
             ssh root@178.128.161.183: "cd /var/www/dmp.milliapps.xyz/; yarn install; yarn start";
 
 workflows:
