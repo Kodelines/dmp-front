@@ -163,10 +163,6 @@ const LeftPanel = styled.div`
 const FlexibleContainer = styled.div`
   display: flex;
   flex-direction: column;
-
-  .ant-btn {
-    padding-top: 12px;
-  }
 `;
 
 const RightPanel = styled.div`
