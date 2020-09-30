@@ -1,6 +1,6 @@
 /**
  *
- * NewConsultation
+ * NewExamination
  *
  */
 
@@ -10,43 +10,35 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import { useInjectReducer, useInjectSaga } from 'utils/redux-injectors';
 import { reducer, sliceKey } from './slice';
-import { selectNewConsultation } from './selectors';
-import { newConsultationSaga } from './saga';
+import { selectNewExamination } from './selectors';
+import { newExaminationSaga } from './saga';
 import { Container } from 'app/components/Container';
 import { Col, Descriptions, Divider, PageHeader, Row } from 'antd';
-import { AutoFields, AutoForm, SubmitField } from 'uniforms-antd';
+import { AutoForm, AutoFields, SubmitField } from 'uniforms-antd';
 import schema from './schema';
 
 interface Props {}
 
-export const NewConsultation = memo((props: Props) => {
+export const NewExamination = memo((props: Props) => {
   useInjectReducer({ key: sliceKey, reducer: reducer });
-  useInjectSaga({ key: sliceKey, saga: newConsultationSaga });
+  useInjectSaga({ key: sliceKey, saga: newExaminationSaga });
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const newConsultation = useSelector(selectNewConsultation);
+  const newExamination = useSelector(selectNewExamination);
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const dispatch = useDispatch();
 
   return (
     <>
       <Helmet>
-        <title>Nouvelle consultation</title>
-        <meta name="description" content="Description of NewConsultation" />
+        <title>NewExamination</title>
+        <meta name="description" content="Description of NewExamination" />
       </Helmet>
       <Container>
         <PageHeader
           onBack={() => window.history.back()}
           title="Moussa Diop"
-          subTitle="Nouvelle consultation"
-          // extra={[
-          //   <Button key="2" type="primary">
-          //     <EditFilled /> Modifier
-          //   </Button>,
-          //   <Button key="1" danger type="primary">
-          //     <DeleteFilled />
-          //   </Button>,
-          // ]}
+          subTitle="Nouvel examen"
         >
           <Descriptions bordered column={{ xs: 1, md: 2 }}>
             <Descriptions.Item label="Etablissement">
@@ -58,17 +50,11 @@ export const NewConsultation = memo((props: Props) => {
           </Descriptions>
         </PageHeader>
         <Divider />
-        <h2>Nouvelle consultation</h2>
+        <h2>Nouvel examen</h2>
         <AutoForm schema={schema}>
           <Row>
             <Col span={24}>
-              <AutoFields
-                fields={[
-                  'motif_consultation',
-                  'histoire_maladie',
-                  'diagnostic',
-                ]}
-              />
+              <AutoFields fields={['examen_type', 'commentaire', 'content']} />
             </Col>
           </Row>
           <Row justify="end">
