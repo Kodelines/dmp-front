@@ -209,6 +209,7 @@ export const Examination = () => {
           />
         </Col>
         <Col span={6} offset={4}>
+          {/* <Button type="primary" href={`/userfile/${id}/examination/add`}> */}
           <Button type="primary" onClick={() => setDisplayExam(true)}>
             Ajouter un examen
           </Button>

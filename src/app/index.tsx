@@ -27,6 +27,7 @@ import { UserFile } from './containers/UserFile/Loadable';
 import { HospitalisationDetails } from './containers/HospitalisationDetails/Loadable';
 import { ExaminationDetails } from './containers/ExaminationDetails/Loadable';
 import { NewConsultation } from './containers/NewConsultation/Loadable';
+import { NewExamination } from './containers/NewExamination/Loadable';
 
 const { Content } = Layout;
 
@@ -65,6 +66,11 @@ export function App() {
                   exact
                   path="/userfile/:userId/consultation/add"
                   component={NewConsultation}
+                />
+                <Route
+                  exact
+                  path="/userfile/:userId/examination/add"
+                  component={NewExamination}
                 />
               </Content>
             </Layout>
