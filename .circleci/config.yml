@@ -33,6 +33,7 @@ jobs:
       - run:
           name: Deploy over SSH
           command: |
+            yarn install
             yarn build:prod
             scp -r /tmp/build/* root@178.128.161.183:var/www/dmp.milliapps.xyz/
             ssh root@178.128.161.183: "cd /var/www/dmp.milliapps.xyz/; yarn install; yarn start";
