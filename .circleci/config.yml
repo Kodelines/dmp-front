@@ -8,9 +8,7 @@ jobs:
       - checkout
       - run:
           name: update-npm
-          command: |
-            sudo npm install -g yarn@latest
-            npx browserslist@latest --update-db
+          command: 'sudo npm install -g yarn@latest'
       - restore_cache:
           key: dependency-cache-{{checksum "package-lock.json"}}
       - run:
