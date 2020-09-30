@@ -5,10 +5,11 @@ import {
   Button,
   Modal,
   Col,
-  Timeline,
   Typography,
   Select,
   Divider,
+  List,
+  DatePicker,
 } from 'antd';
 import {
   AutoForm,
@@ -183,7 +184,7 @@ export const Examination = () => {
 
   return (
     <>
-      <Row justify="space-between" align="middle">
+      <Row align="middle" gutter={32}>
         <Col span={6}>
           <Select
             showSearch
@@ -199,41 +200,56 @@ export const Examination = () => {
             <Select.Option value="radiologie">Radiologie</Select.Option>
           </Select>
         </Col>
-        <Button type="primary" onClick={() => setDisplayExam(true)}>
-          Ajouter un examen
-        </Button>
+        <Col span={6}>
+          <input
+            type="date"
+            value={new Date().toDateString()}
+            min="2018-01-01"
+            max="2018-12-31"
+          />
+        </Col>
+        <Col span={6} offset={6}>
+          <Button type="primary" onClick={() => setDisplayExam(true)}>
+            Ajouter un examen
+          </Button>
+        </Col>
       </Row>
       <Divider />
       <Row>
-        {/* <Tabs tabPosition="left" style={{ height: 420 }}> */}
-        <Timeline>
-          {data.map(it => (
-            <Timeline.Item>
-              <div>
-                <Typography.Text>
-                  {parseDate(it.date)} - {timeago(it.date)}
-                </Typography.Text>
-              </div>
-              <div>
-                <Typography.Text type="secondary">{it.hopital}</Typography.Text>
-              </div>
-              <div>
-                <Typography.Text strong>
-                  Examen : {it.examen_type}
-                </Typography.Text>
-              </div>
-              <div>
-                <ListActionButton
-                  text="Voir les détails"
-                  icon={<FileSearchOutlined />}
-                  href={`/userfile/${id}/examen/${it.id}`}
-                />
-                <ListActionButton text="Modifier" icon={<EditFilled />} />
-                <ListActionButton danger icon={<DeleteFilled />} />
-              </div>
-            </Timeline.Item>
-          ))}
-        </Timeline>
+        <Col span={24}>
+          <List
+            itemLayout="vertical"
+            dataSource={data}
+            renderItem={it => (
+              <List.Item key={it.id}>
+                <div>
+                  <Typography.Text>
+                    {parseDate(it.date)} - {timeago(it.date)}
+                  </Typography.Text>
+                </div>
+                <div>
+                  <Typography.Text type="secondary">
+                    {it.hopital}
+                  </Typography.Text>
+                </div>
+                <div>
+                  <Typography.Text strong>
+                    Examen : {it.examen_type}
+                  </Typography.Text>
+                </div>
+                <div>
+                  <ListActionButton
+                    text="Voir les détails"
+                    icon={<FileSearchOutlined />}
+                    href={`/userfile/${id}/examen/${it.id}`}
+                  />
+                  <ListActionButton text="Modifier" icon={<EditFilled />} />
+                  <ListActionButton danger icon={<DeleteFilled />} />
+                </div>
+              </List.Item>
+            )}
+          />
+        </Col>
       </Row>
       <Modal
         title="Ajouter un examen"
