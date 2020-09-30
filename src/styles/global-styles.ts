@@ -79,7 +79,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   .ant-page-header {
-    padding: 16px 0px;
+    padding: 16px 0px !important;
   }
 
   .mt-4 {
@@ -102,6 +102,6 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   .ant-list-vertical .ant-list-item-meta-title {
-    font-size: 16px;
+    font-size: 16px !important;
   }
 `;
