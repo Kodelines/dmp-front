@@ -1,7 +1,14 @@
 version: 2.1
-orbs:
-  node: circleci/node@3.0.0
-workflows:
-  node-tests:
-    jobs:
-      - node/test
+jobs:
+  build:
+    docker: 
+      - image: node:7.4.0
+    working_directory: /var/www/dmp.milliapps.xyz/
+    steps:
+      - checkout
+      - run: mkdir -p /var/www/dmp.milliapps.xyz/artifacts
+      - run: npm install
+      - run: npm test
+      - store_artifacts:
+          path: /var/www/dmp.milliapps.xyz/artifacts
+          
