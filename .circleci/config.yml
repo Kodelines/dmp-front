@@ -1,16 +1,44 @@
 version: 2.1
 jobs:
   build:
-    docker: 
-      - image: node:7.4.0
-    working_directory: /var/www/dmp.milliapps.xyz/
+    working_directory: ~/repo
+    docker:
+      - image: circleci/node:12.9.1-browsers
+
     steps:
       - checkout
+
+      - restore_cache:
+        keys:
+          - v1-dependencies-{{ checksum "package.json" }}
+          - v1-dependencies-
+
+      - run: yarn install
+
+      - save_cache:
+        paths:
+          - node_modules
+          - ~/.npm
+          - ~/.cache
+        key: v1-dependencies-{{ checksum "package.json" }}
+
+      - run: yarn lint
       - run: yarn test
-      - run: npm build
-    deployment:
-      production:
-        branch: master
-        commands:
-          - scp -r master/* root@178.128.161.183:/var/www/dmp.milliapps.xyz/
-      
+      - run: yarn build
+  deploy:
+    machine:
+      enabled: true
+    steps:
+      - checkout
+      - run:
+          name: Deploy over SSH
+          command: ssh root@178.128.161.183 "cd /var/www/dmp.milliapps.xyz/; git pull; yarn start";
+
+workflows:
+  version: 2.1
+  build-and-deploy:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
