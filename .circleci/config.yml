@@ -8,8 +8,6 @@ jobs:
       - checkout
       - run:
           name: update-npm
-          env:
-            CI: false
           command: |
             sudo npm install -g yarn@latest
             npx browserslist@latest --update-db
