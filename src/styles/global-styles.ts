@@ -79,7 +79,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   .ant-page-header {
-    padding: 16px 0px;
+    padding: 16px 0px !important;
   }
 
   .mt-4 {
@@ -88,5 +88,20 @@ export const GlobalStyle = createGlobalStyle`
 
   .ant-timeline-item-content {
     top: -7px;
+  }
+
+  a.ant-btn {
+    line-height: 2.5715 !important;
+  }
+
+  .ant-form-item-control-input
+  .ant-select-single:not(.ant-select-customize-input)
+  .ant-select-selector
+  {
+    padding: 12px 11px;
+  }
+
+  .ant-list-vertical .ant-list-item-meta-title {
+    font-size: 16px !important;
   }
 `;
