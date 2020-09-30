@@ -90,6 +90,10 @@ export const GlobalStyle = createGlobalStyle`
     top: -7px;
   }
 
+  a.ant-btn {
+    line-height: 2.5715 !important;
+  }
+
   .ant-form-item-control-input
   .ant-select-single:not(.ant-select-customize-input)
   .ant-select-selector

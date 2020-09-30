@@ -26,6 +26,7 @@ import { CreateUser } from './containers/CreateUser/Loadable';
 import { UserFile } from './containers/UserFile/Loadable';
 import { HospitalisationDetails } from './containers/HospitalisationDetails/Loadable';
 import { ExaminationDetails } from './containers/ExaminationDetails/Loadable';
+import { NewConsultation } from './containers/NewConsultation/Loadable';
 
 const { Content } = Layout;
 
@@ -59,6 +60,11 @@ export function App() {
                   exact
                   path="/userfile/:userId/hospitalisation/:id"
                   component={HospitalisationDetails}
+                />
+                <Route
+                  exact
+                  path="/userfile/:userId/consultation/add"
+                  component={NewConsultation}
                 />
               </Content>
             </Layout>
