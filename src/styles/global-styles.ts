@@ -89,4 +89,8 @@ export const GlobalStyle = createGlobalStyle`
   .ant-timeline-item-content {
     top: -7px;
   }
+
+  a.ant-btn {
+    line-height: 2.5715 !important;
+  }
 `;
