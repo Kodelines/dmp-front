@@ -93,4 +93,11 @@ export const GlobalStyle = createGlobalStyle`
   a.ant-btn {
     line-height: 2.5715 !important;
   }
+
+  .ant-form-item-control-input
+  .ant-select-single:not(.ant-select-customize-input)
+  .ant-select-selector
+  {
+    padding: 12px 11px;
+  }
 `;

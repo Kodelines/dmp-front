@@ -9,9 +9,9 @@ import { Helmet } from 'react-helmet-async';
 // import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 // import styled from 'styled-components/macro';
-import { AutoForm } from 'uniforms-antd';
+import { AutoFields, AutoForm, SubmitField } from 'uniforms-antd';
 import { Container } from 'app/components/Container';
-import { Row, Col, Typography } from 'antd';
+import { Row, Col, Typography, Divider } from 'antd';
 
 import { useInjectReducer, useInjectSaga } from 'utils/redux-injectors';
 import { reducer, sliceKey } from './slice';
@@ -38,16 +38,54 @@ export const CreateUser = memo((props: Props) => {
   return (
     <>
       <Helmet>
-        <title>Nouveau Usager</title>
+        <title>Nouveau dossier patient</title>
         <meta name="description" content="Description of create user" />
       </Helmet>
       <Container>
-        <Title level={3}>Nouveau usager</Title>
-        <Row gutter={36}>
-          <Col span={12}>
-            <AutoForm schema={userSchema} showInlineError />
-          </Col>
-        </Row>
+        <Title level={3}>Nouveau dossier patient</Title>
+        <Divider />
+        <AutoForm schema={userSchema} showInlineError>
+          <Row gutter={36}>
+            <Col span={12}>
+              <AutoFields
+                fields={['first_name', 'date_of_birth', 'sexe', 'phone_number']}
+              />
+            </Col>
+            <Col span={12}>
+              <AutoFields
+                fields={[
+                  'last_name',
+                  'place_of_birth',
+                  'situation_matrimoniale',
+                ]}
+              />
+            </Col>
+          </Row>
+          <Row gutter={36}>
+            <Col span={12}>
+              <AutoFields fields={['type_document']} />
+            </Col>
+            <Col span={12}>
+              <AutoFields fields={['identity_number']} />
+            </Col>
+          </Row>
+          <h3 className="mt-4">Personne à prévenir en cas d'accident</h3>
+          <Divider />
+          <Row gutter={36}>
+            <Col span={12}>
+              <AutoFields fields={['contacts_lien', 'contacts_phone']} />
+            </Col>
+            <Col span={12}>
+              <AutoFields fields={['contacts_noms', 'contacts_adresse']} />
+            </Col>
+          </Row>
+          <Divider />
+          <Row justify="end">
+            <Col span={5}>
+              <SubmitField block value="Valider" />
+            </Col>
+          </Row>
+        </AutoForm>
       </Container>
     </>
   );
