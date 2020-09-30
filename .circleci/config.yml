@@ -8,8 +8,9 @@ jobs:
       - checkout
       - run:
           name: update-npm
+          env:
+            CI: false
           command: |
-            unset CI
             sudo npm install -g yarn@latest
             npx browserslist@latest --update-db
       - restore_cache:
