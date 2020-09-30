@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components/macro';
-import { Row, Button, Modal, List, Col } from 'antd';
+import { Row, Button, Modal, List, Col, Divider } from 'antd';
 import { AutoForm } from 'uniforms-antd';
 import shortid from 'shortid';
 import dayjs from 'dayjs';
@@ -8,6 +8,7 @@ import dayjs from 'dayjs';
 import { consultationSchema } from './schemas';
 import 'dayjs/locale/fr';
 import capitalize from 'utils/capitalize';
+import { useParams } from 'react-router-dom';
 
 var localizedFormat = require('dayjs/plugin/localizedFormat');
 dayjs.extend(localizedFormat);
@@ -63,6 +64,7 @@ const data: Array<ConsultationItem> = [
 ];
 
 export const Consultations = () => {
+  const { id } = useParams<{ id: string }>();
   const [displayConsultation, setDisplayConsultation] = useState(false);
 
   //Fri Jun 26 2020 13:46:56
@@ -74,10 +76,11 @@ export const Consultations = () => {
   return (
     <>
       <Row justify="end">
-        <Button type="primary" onClick={() => setDisplayConsultation(true)}>
+        <Button type="primary" href={`/userfile/${id}/consultation/add`}>
           Ajouter une consultation
         </Button>
       </Row>
+      <Divider />
       <Row>
         <List
           itemLayout="vertical"
