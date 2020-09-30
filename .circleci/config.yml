@@ -25,7 +25,7 @@ jobs:
       - checkout
       - run:
           name: Deploy over SSH
-          command: ssh root@178.128.161.183 "cd /var/www/dmp.milliapps.xyz/; git pull; yarn start";
+          command: ssh root@178.128.161.183 "cd /var/www/dmp.milliapps.xyz/; git checkout master; git pull; yarn start";
 
 workflows:
   version: 2
