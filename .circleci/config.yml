@@ -1,30 +1,23 @@
-version: 2.1
+version: 2.17
 jobs:
   build:
-    working_directory: ~/repo
+    working_directory: ~/hello-sts
     docker:
-      - image: circleci/node:12.9.1-browsers
-
+      - image: circleci/node:10.15.2
     steps:
       - checkout
-
+      - run:
+          name: update-npm
+          command: 'sudo npm install -g yarn@latest'
       - restore_cache:
-        keys:
-          - v1-dependencies-{{ checksum "package.json" }}
-          - v1-dependencies-
-
-      - run: yarn install
-
+          key: dependency-cache-{{checksum "package-lock.json"}}
+      - run:
+          name: install-npm
+          command: yarn install
       - save_cache:
-        paths:
-          - node_modules
-          - ~/.npm
-          - ~/.cache
-        key: v1-dependencies-{{ checksum "package.json" }}
-
-      - run: yarn lint
-      - run: yarn test
-      - run: yarn build
+          key: dependency-cache-{{checksum "package-lock.json"}}
+          paths:
+            - ./node_modules
   deploy:
     machine:
       enabled: true
@@ -35,7 +28,7 @@ jobs:
           command: ssh root@178.128.161.183 "cd /var/www/dmp.milliapps.xyz/; git pull; yarn start";
 
 workflows:
-  version: 2.1
+  version: 2
   build-and-deploy:
     jobs:
       - build
