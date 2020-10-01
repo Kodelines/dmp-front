@@ -4,20 +4,21 @@
  *
  */
 
+import { Button, Col, Form, Input, Row, Typography } from 'antd';
+import { Box } from 'app/components/Box';
+import { Container } from 'app/components/Container';
 import React, { memo } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components/macro';
-
 import { useInjectReducer, useInjectSaga } from 'utils/redux-injectors';
-import { reducer, sliceKey } from './slice';
-import { selectRegister } from './selectors';
+
+import { LockOutlined, UserOutlined } from '@ant-design/icons';
+
 import { registerSaga } from './saga';
-import { Container } from 'app/components/Container';
-import { Row, Col, Typography, Form, Input, Button } from 'antd';
-import { UserOutlined, LockOutlined } from '@ant-design/icons';
-import { Box } from 'app/components/Box';
+import { selectRegister } from './selectors';
+import { reducer, sliceKey } from './slice';
 
 const registerBack = require('assets/images/register.png');
 

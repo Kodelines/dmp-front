@@ -4,14 +4,6 @@
  *
  */
 
-import React, { memo } from 'react';
-import { Helmet } from 'react-helmet-async';
-import { useSelector, useDispatch } from 'react-redux';
-// import styled from 'styled-components/macro';
-
-import { useInjectReducer } from 'utils/redux-injectors';
-import { reducer, sliceKey } from './slice';
-import { selectExaminationDetails } from './selectors';
 import {
   Button,
   Col,
@@ -22,8 +14,17 @@ import {
   Row,
   Space,
 } from 'antd';
-import { EditFilled, DeleteFilled } from '@ant-design/icons';
 import { Container } from 'app/components/Container';
+import React, { memo } from 'react';
+import { Helmet } from 'react-helmet-async';
+import { useDispatch, useSelector } from 'react-redux';
+// import styled from 'styled-components/macro';
+import { useInjectReducer } from 'utils/redux-injectors';
+
+import { DeleteFilled, EditFilled } from '@ant-design/icons';
+
+import { selectExaminationDetails } from './selectors';
+import { reducer, sliceKey } from './slice';
 
 const ConfidentialImage = require('assets/images/confidential.jpg');
 const SecretImage = require('assets/images/secret.jpg');

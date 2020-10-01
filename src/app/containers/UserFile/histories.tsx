@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import {
   Button,
   Collapse,
@@ -8,8 +7,10 @@ import {
   Row,
   Typography,
 } from 'antd';
+import React, { useState } from 'react';
 import styled from 'styled-components/macro';
 import { AutoForm } from 'uniforms-antd';
+
 import { historySchema } from './schemas';
 
 const { Panel } = Collapse;

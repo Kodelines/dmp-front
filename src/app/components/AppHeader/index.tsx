@@ -1,29 +1,31 @@
+import {
+  Avatar,
+  Badge,
+  Button,
+  Dropdown,
+  Layout,
+  Menu,
+  Space,
+  Typography,
+} from 'antd';
 /**
  *
  * AppHeader
  *
  */
 import React, { memo } from 'react';
-import styled from 'styled-components/macro';
 import { useTranslation } from 'react-i18next';
-import {
-  Space,
-  Badge,
-  Avatar,
-  Layout,
-  Dropdown,
-  Menu,
-  Typography,
-  Button,
-} from 'antd';
+import styled from 'styled-components/macro';
+
 import {
   CaretDownOutlined,
-  UserOutlined,
-  SettingOutlined,
   LogoutOutlined,
+  SettingOutlined,
+  UserOutlined,
 } from '@ant-design/icons';
-import { IconBell } from '../customIcons';
+
 import { Container } from '../Container';
+import { IconBell } from '../customIcons';
 
 const { Header } = Layout;
 const { Text } = Typography;

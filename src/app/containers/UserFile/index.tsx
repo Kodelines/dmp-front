@@ -4,25 +4,25 @@
  *
  */
 
+import { Tabs, Typography } from 'antd';
+import { Container } from 'app/components/Container';
 import React, { memo } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components/macro';
-import { Typography, Tabs } from 'antd';
-
 import { useInjectReducer, useInjectSaga } from 'utils/redux-injectors';
-import { reducer, sliceKey } from './slice';
-import { selectUserFile } from './selectors';
-import { userFileSaga } from './saga';
-import { Container } from 'app/components/Container';
+
 // import { BigButton } from 'app/components/BigButton';
 // import { FileDoneOutlined, FileSearchOutlined } from '@ant-design/icons';
 import { Consultations } from './consultations';
-import { Hospitalisation } from './hospitalisations';
 import { Examination } from './examinations';
 import { Histories } from './histories';
+import { Hospitalisation } from './hospitalisations';
 import { Informations } from './informations';
+import { userFileSaga } from './saga';
+import { selectUserFile } from './selectors';
+import { reducer, sliceKey } from './slice';
 
 const { Title } = Typography;
 const { TabPane } = Tabs;

@@ -1,3 +1,5 @@
+import { Button } from 'antd';
+import { ButtonProps } from 'antd/lib/button';
 /**
  *
  * BigButton
@@ -5,8 +7,6 @@
  */
 import React from 'react';
 import styled from 'styled-components/macro';
-import { Button } from 'antd';
-import { ButtonProps } from 'antd/lib/button';
 
 interface Props extends ButtonProps {
   children: React.ReactNode;

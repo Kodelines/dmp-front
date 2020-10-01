@@ -1,18 +1,19 @@
-import React from 'react';
-import styled from 'styled-components/macro';
-import { Row, Button, Col, Typography, Select, Divider, List } from 'antd';
+import 'dayjs/locale/fr';
+
+import { Button, Col, Divider, List, Row, Select, Typography } from 'antd';
+import { ListActionButton } from 'app/components/ListActionButton';
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
-
-import 'dayjs/locale/fr';
+import React from 'react';
+import { useParams } from 'react-router-dom';
+import styled from 'styled-components/macro';
 import capitalize from 'utils/capitalize';
-import { ListActionButton } from 'app/components/ListActionButton';
+
 import {
   DeleteFilled,
   EditFilled,
   FileSearchOutlined,
 } from '@ant-design/icons';
-import { useParams } from 'react-router-dom';
 
 var localizedFormat = require('dayjs/plugin/localizedFormat');
 dayjs.extend(localizedFormat);

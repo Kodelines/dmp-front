@@ -1,11 +1,12 @@
 import React from 'react';
-import { render } from '@testing-library/react';
-import { Store } from '@reduxjs/toolkit';
-import { Provider } from 'react-redux';
 import { HelmetProvider } from 'react-helmet-async';
-
+import { Provider } from 'react-redux';
 import { configureAppStore } from 'store/configureStore';
-import { Dashboard } from '..';
+
+import { Store } from '@reduxjs/toolkit';
+import { render } from '@testing-library/react';
+
+import { Dashboard } from '../';
 
 const renderComponent = (store: Store) =>
   render(
