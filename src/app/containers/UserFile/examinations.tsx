@@ -1,27 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components/macro';
-import {
-  Row,
-  Button,
-  Modal,
-  Col,
-  Typography,
-  Select,
-  Divider,
-  List,
-} from 'antd';
-import {
-  AutoForm,
-  AutoFields,
-  ListField,
-  ListItemField,
-  NestField,
-  AutoField,
-} from 'uniforms-antd';
+import { Row, Button, Col, Typography, Select, Divider, List } from 'antd';
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 
-import { examinationSchema } from './schemas';
 import 'dayjs/locale/fr';
 import capitalize from 'utils/capitalize';
 import { ListActionButton } from 'app/components/ListActionButton';
@@ -166,7 +148,6 @@ const data: Array<ExaminationItem> = [
 
 export const Examination = () => {
   let { id } = useParams<{ id: string }>();
-  const [displayExam, setDisplayExam] = useState(false);
 
   //Fri Jun 26 2020 13:46:56
   const parseDate = date => capitalize(dayjs(date).locale('fr').format('llll'));
@@ -209,8 +190,7 @@ export const Examination = () => {
           />
         </Col>
         <Col span={6} offset={4}>
-          {/* <Button type="primary" href={`/userfile/${id}/examination/add`}> */}
-          <Button type="primary" onClick={() => setDisplayExam(true)}>
+          <Button type="primary" href={`/userfile/${id}/examination/add`}>
             Ajouter un examen
           </Button>
         </Col>
@@ -252,36 +232,6 @@ export const Examination = () => {
           />
         </Col>
       </Row>
-      <Modal
-        title="Ajouter un examen"
-        visible={displayExam}
-        width="720px"
-        centered
-        onCancel={() => setDisplayExam(false)}
-      >
-        <AutoForm schema={examinationSchema}>
-          <AutoFields fields={['examen_type', 'commentaire']} />
-          <ListField
-            label="Examens"
-            name="content"
-            initialCount={1}
-            wrapperCol={12}
-          >
-            <ListItemField name="$">
-              <NestField name="" label=" ">
-                <Row gutter={24}>
-                  <Col span={8}>
-                    <AutoField name="key" size="small" />
-                  </Col>
-                  <Col span={16}>
-                    <AutoField name="value" size="small" />
-                  </Col>
-                </Row>
-              </NestField>
-            </ListItemField>
-          </ListField>
-        </AutoForm>
-      </Modal>
     </>
   );
 };
