@@ -4,18 +4,18 @@
  *
  */
 
+import { Col, Descriptions, Divider, PageHeader, Row } from 'antd';
+import { Container } from 'app/components/Container';
 import React, { memo, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { useSelector, useDispatch } from 'react-redux';
-
+import { useDispatch, useSelector } from 'react-redux';
+import { AutoFields, AutoForm, SubmitField } from 'uniforms-antd';
 import { useInjectReducer, useInjectSaga } from 'utils/redux-injectors';
-import { reducer, sliceKey } from './slice';
-import { selectNewExamination } from './selectors';
+
 import { newExaminationSaga } from './saga';
-import { Container } from 'app/components/Container';
-import { Col, Descriptions, Divider, PageHeader, Row } from 'antd';
-import { AutoForm, AutoFields, SubmitField } from 'uniforms-antd';
 import schema from './schema';
+import { selectNewExamination } from './selectors';
+import { reducer, sliceKey } from './slice';
 
 interface Props {}
 

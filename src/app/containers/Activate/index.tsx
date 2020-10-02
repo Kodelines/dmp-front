@@ -4,24 +4,19 @@
  *
  */
 
+import { Button, Col, Form, Input, Row, Typography } from 'antd';
+import { Box } from 'app/components/Box';
+import { Container } from 'app/components/Container';
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components/macro';
-
 import { useInjectReducer, useInjectSaga } from 'utils/redux-injectors';
-import { reducer, sliceKey } from './slice';
-import { selectActivate } from './selectors';
+
 import { activateSaga } from './saga';
-import { Typography } from 'antd';
-import { Container } from 'app/components/Container';
-import { Row } from 'antd';
-import { Col } from 'antd';
-import { Box } from 'app/components/Box';
-import { Form } from 'antd';
-import { Input } from 'antd';
-import { Button } from 'antd';
+import { selectActivate } from './selectors';
+import { reducer, sliceKey } from './slice';
 
 const activateBack = require('assets/images/activate.png');
 

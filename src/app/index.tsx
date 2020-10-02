@@ -6,28 +6,27 @@
  * contain code that should be seen on all pages. (e.g. navigation bar)
  */
 
+import { Layout } from 'antd';
 import * as React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Switch, Route } from 'react-router-dom';
-import { Layout } from 'antd';
-
+import { Route, Switch } from 'react-router-dom';
+import styled from 'styled-components';
 import { GlobalStyle } from 'styles/global-styles';
 
+import { AppHeader } from './components/AppHeader';
 // import { HomePage } from './containers/HomePage/Loadable';
 import { NotFoundPage } from './components/NotFoundPage/Loadable';
-import { Login } from './containers/Login/Loadable';
-import { Dashboard } from './containers/Dashboard/Loadable';
-import styled from 'styled-components';
 import { SideMenu } from './components/SideMenu';
-import { AppHeader } from './components/AppHeader';
-import { Register } from './containers/Register/Loadable';
 import { Activate } from './containers/Activate/Loadable';
 import { CreateUser } from './containers/CreateUser/Loadable';
-import { UserFile } from './containers/UserFile/Loadable';
-import { HospitalisationDetails } from './containers/HospitalisationDetails/Loadable';
+import { Dashboard } from './containers/Dashboard/Loadable';
 import { ExaminationDetails } from './containers/ExaminationDetails/Loadable';
+import { HospitalisationDetails } from './containers/HospitalisationDetails/Loadable';
+import { Login } from './containers/Login/Loadable';
 import { NewConsultation } from './containers/NewConsultation/Loadable';
 import { NewExamination } from './containers/NewExamination/Loadable';
+import { Register } from './containers/Register/Loadable';
+import { UserFile } from './containers/UserFile/Loadable';
 
 const { Content } = Layout;
 

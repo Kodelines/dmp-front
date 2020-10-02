@@ -3,9 +3,9 @@
  * PageHeader
  *
  */
+import { PageHeader as AntPageHeader } from 'antd';
 // import React, { memo } from 'react';
 import styled from 'styled-components/macro';
-import { PageHeader as AntPageHeader } from 'antd';
 
 interface Props {}
 

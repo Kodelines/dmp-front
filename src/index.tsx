@@ -7,30 +7,25 @@
 
 import 'react-app-polyfill/ie11';
 import 'react-app-polyfill/stable';
-
-import * as React from 'react';
-import * as ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
-import { ConnectedRouter } from 'connected-react-router';
-import * as serviceWorker from 'serviceWorker';
-import { history } from 'utils/history';
-import frFR from 'antd/es/locale/fr_FR';
 import 'dayjs/locale/fr';
 import 'sanitize.css/sanitize.css';
 import 'antd/dist/antd.less';
-
-// Import root app
-import { App } from 'app';
-
-import { HelmetProvider } from 'react-helmet-async';
-
-import { configureAppStore } from 'store/configureStore';
-
-import FontFaceObserver from 'fontfaceobserver';
-
 // Initialize languages
 import './locales/i18n';
+
 import { ConfigProvider } from 'antd';
+import frFR from 'antd/es/locale/fr_FR';
+// Import root app
+import { App } from 'app';
+import { ConnectedRouter } from 'connected-react-router';
+import FontFaceObserver from 'fontfaceobserver';
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
+import { HelmetProvider } from 'react-helmet-async';
+import { Provider } from 'react-redux';
+import * as serviceWorker from 'serviceWorker';
+import { configureAppStore } from 'store/configureStore';
+import { history } from 'utils/history';
 
 // Create redux store with history
 const store = configureAppStore(history);

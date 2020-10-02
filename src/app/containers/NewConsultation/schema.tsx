@@ -1,6 +1,6 @@
-import JSONSchemaBridge from 'uniforms-bridge-json-schema';
 import Ajv from 'ajv';
 import { LongTextField } from 'uniforms-antd';
+import JSONSchemaBridge from 'uniforms-bridge-json-schema';
 
 const consultationJsonSchema = {
   title: 'Block',

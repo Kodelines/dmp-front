@@ -1,7 +1,8 @@
 import React from 'react';
+
 import { render } from '@testing-library/react';
 
-import { SideMenu } from '..';
+import { SideMenu } from '../';
 
 describe('<SideMenu  />', () => {
   it('should match snapshot', () => {

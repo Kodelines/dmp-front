@@ -22,5 +22,9 @@
   },
   "jest.autoEnable": false,
   "jest.runAllTestsFirst": false,
-  "faker.locale": "fr"
+  "faker.locale": "fr",
+  "eslint.enable": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  }
 }

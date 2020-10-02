@@ -1,15 +1,15 @@
+import { Layout, Menu } from 'antd';
 /**
  *
  * SideMenu
  *
  */
 import React, { memo } from 'react';
-import styled from 'styled-components/macro';
 import { useTranslation } from 'react-i18next';
-import { Menu, Layout } from 'antd';
-
-import { IconDashboard, IconAddressBook, IconDateTime } from '../customIcons';
+import styled from 'styled-components/macro';
 import colors from 'styles/colors';
+
+import { IconAddressBook, IconDashboard, IconDateTime } from '../customIcons';
 
 interface Props {}
 

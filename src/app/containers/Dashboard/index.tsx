@@ -4,25 +4,26 @@
  *
  */
 
+// import dayjs from 'dayjs';
+import 'dayjs/locale/fr';
+
+import { Col, Input, Row } from 'antd';
+import { BigButton } from 'app/components/BigButton';
+import { Container } from 'app/components/Container';
 import React, { memo } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
-import { useSelector, useDispatch } from 'react-redux';
-import styled from 'styled-components/macro';
-// import dayjs from 'dayjs';
-import 'dayjs/locale/fr';
+import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import styled from 'styled-components/macro';
+import { useInjectReducer, useInjectSaga } from 'utils/redux-injectors';
 
 import { UserAddOutlined } from '@ant-design/icons';
 
-import { useInjectReducer, useInjectSaga } from 'utils/redux-injectors';
-import { reducer, sliceKey } from './slice';
-import { selectDashboard } from './selectors';
 import { dashboardSaga } from './saga';
-import { Container } from 'app/components/Container';
+import { selectDashboard } from './selectors';
+import { reducer, sliceKey } from './slice';
 
-import { Input, Row, Col } from 'antd';
-import { BigButton } from 'app/components/BigButton';
 // import colors from 'styles/colors';
 // import Alert from '../../components/Alert/index';
 // import { BigButton } from '../../components/BigButton/index';

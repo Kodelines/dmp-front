@@ -1,7 +1,8 @@
 import React from 'react';
+
 import { render } from '@testing-library/react';
 
-import { BigButton } from '..';
+import { BigButton } from '../';
 
 describe('<BigButton  />', () => {
   it('should match snapshot', () => {

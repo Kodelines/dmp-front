@@ -1,19 +1,21 @@
-import React, { useState } from 'react';
-import { Row, Button, Modal, Timeline, Typography } from 'antd';
-import { AutoForm } from 'uniforms-antd';
-import shortid from 'shortid';
+import 'dayjs/locale/fr';
+
+import { Button, Modal, Row, Timeline, Typography } from 'antd';
+import { ListActionButton } from 'app/components/ListActionButton';
 import dayjs from 'dayjs';
+import React, { useState } from 'react';
+import { useParams } from 'react-router-dom';
+import shortid from 'shortid';
+import { AutoForm } from 'uniforms-antd';
+import capitalize from 'utils/capitalize';
+
+import {
+  DeleteFilled,
+  EditFilled,
+  FileSearchOutlined,
+} from '@ant-design/icons';
 
 import { hospitalizationSchema } from './schemas';
-import 'dayjs/locale/fr';
-import capitalize from 'utils/capitalize';
-import {
-  FileSearchOutlined,
-  EditFilled,
-  DeleteFilled,
-} from '@ant-design/icons';
-import { ListActionButton } from 'app/components/ListActionButton';
-import { useParams } from 'react-router-dom';
 
 var localizedFormat = require('dayjs/plugin/localizedFormat');
 dayjs.extend(localizedFormat);
