@@ -71,7 +71,7 @@ export const Dashboard = memo((props: Props) => {
               href="/adduser"
               icon={<UserAddOutlined />}
             >
-              Ajouter un patient
+              Nouveau dossier patient
             </BigButton>
           </Col>
         </Row>

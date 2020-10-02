@@ -19,8 +19,6 @@ interface HystoryItem {
   type: 'medical' | 'familial' | 'mode_de_vie' | 'chirurgical' | string;
   description: string;
   date: string;
-  hopital: string;
-  medecin: string;
 }
 
 const historyData: Array<HystoryItem> = [
@@ -29,95 +27,71 @@ const historyData: Array<HystoryItem> = [
     description:
       'Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui. Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam.',
     date: '10/14/2019',
-    medecin: 'Marina Inchbald',
-    hopital: 'Pollich-Mraz',
   },
   {
     type: 'familial',
     description:
       'Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.',
     date: '06/24/2020',
-    medecin: 'Anabella Matthewman',
-    hopital: 'Heller and Sons',
   },
   {
     type: 'mode_de_vie',
     description: 'Nulla tellus. In sagittis dui vel nisl. Duis ac nibh.',
     date: '09/08/2020',
-    medecin: 'Stella Tiptaft',
-    hopital: 'Christiansen and Sons',
   },
   {
     type: 'mode_de_vie',
     description:
       'Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros. Vestibulum ac est lacinia nisi venenatis tristique.',
     date: '10/20/2019',
-    medecin: 'Frasier Bason',
-    hopital: 'Beier, Corwin and Feest',
   },
   {
     type: 'chirurgical',
     description:
       'Nulla mollis molestie lorem. Quisque ut erat. Curabitur gravida nisi at nibh. In hac habitasse platea dictumst.',
     date: '06/21/2020',
-    medecin: 'Roana Goolden',
-    hopital: 'McKenzie, Rodriguez and Gleichner',
   },
   {
     type: 'medical',
     description:
       'Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh. Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros.',
     date: '09/11/2020',
-    medecin: 'Darsie Elletson',
-    hopital: 'Waters-Krajcik',
   },
   {
     type: 'mode_de_vie',
     description:
       'Integer non velit. Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque.',
     date: '01/11/2020',
-    medecin: 'Gwenette Feek',
-    hopital: 'Kessler-Boyer',
   },
   {
     type: 'mode_de_vie',
     description:
       'Aliquam erat volutpat. In congue. Etiam justo. Etiam pretium iaculis justo. In hac habitasse platea dictumst.',
     date: '04/19/2020',
-    medecin: 'Anselm Insoll',
-    hopital: 'Wisozk-Fisher',
   },
   {
     type: 'familial',
     description:
       'Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus. Pellentesque at nulla. Suspendisse potenti.',
     date: '09/23/2019',
-    medecin: 'Randa Waterworth',
-    hopital: 'Feil Inc',
   },
   {
     type: 'familial',
     description:
       'Suspendisse potenti. Cras in purus eu magna vulputate luctus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.',
     date: '01/22/2020',
-    medecin: 'Larry McIlherran',
-    hopital: 'Feeney and Sons',
   },
   {
     type: 'familial',
     description:
       'Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl. Aenean lectus. Pellentesque eget nunc.',
     date: '02/25/2020',
-    medecin: 'Dietrich Elsbury',
-    hopital: 'Abernathy Group',
   },
   {
     type: 'mode_de_vie',
     description:
       'Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet. Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui.',
     date: '03/26/2020',
-    medecin: 'Mariele Stafford',
-    hopital: 'Abernathy, Turcotte and Vandervort',
   },
 ];
 
@@ -135,13 +109,7 @@ export const Histories = () => {
         renderItem={item => (
           <List.Item>
             <Descriptions size="small">
-              <Descriptions.Item label="Date">{item.date}</Descriptions.Item>
-              <Descriptions.Item label="Médécin">
-                {item.medecin}
-              </Descriptions.Item>
-              <Descriptions.Item label="Hopital">
-                {item.hopital}
-              </Descriptions.Item>
+              <Descriptions.Item>{item.date}</Descriptions.Item>
               <Typography.Paragraph type="secondary">
                 {item.description}
               </Typography.Paragraph>
