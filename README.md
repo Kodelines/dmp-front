@@ -1,9 +1,15 @@
 # MDP Front
 
 Using :
+
 - [CRA Boilerplate](https://cansahin.gitbook.io/react-boilerplate-cra-template/)
 - [Ant Design UI Framework](https://ant.design/)
 - [Craco - CRA customization tool](https://github.com/gsoft-inc/craco)
+- [Uniform - schema-based form builder](https://uniforms.tools/)
+
+## Requirements
+
+- Node V12+
 
 ## Install, Start & availables commands
 
@@ -41,4 +47,3 @@ yarn generate
 # Prettify src
 yarn prettify
 ```
-
