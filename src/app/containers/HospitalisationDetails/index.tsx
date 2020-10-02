@@ -4,16 +4,6 @@
  *
  */
 
-import React, { memo } from 'react';
-import { Helmet } from 'react-helmet-async';
-import { useSelector, useDispatch } from 'react-redux';
-// import styled from 'styled-components/macro';
-
-import { useInjectReducer, useInjectSaga } from 'utils/redux-injectors';
-import { reducer, sliceKey } from './slice';
-import { selectHospitalisationDetails } from './selectors';
-import { hospitalisationDetailsSaga } from './saga';
-import { Container } from 'app/components/Container';
 import {
   Button,
   Col,
@@ -28,8 +18,20 @@ import {
   Tag,
   Typography,
 } from 'antd';
+import { Container } from 'app/components/Container';
 import { PageHeader } from 'app/components/PageHeader';
-import { EditFilled, DeleteFilled } from '@ant-design/icons';
+import React, { memo } from 'react';
+import { Helmet } from 'react-helmet-async';
+import { useDispatch, useSelector } from 'react-redux';
+// import styled from 'styled-components/macro';
+import { useInjectReducer, useInjectSaga } from 'utils/redux-injectors';
+
+import { DeleteFilled, EditFilled } from '@ant-design/icons';
+
+import { hospitalisationDetailsSaga } from './saga';
+import { selectHospitalisationDetails } from './selectors';
+import { reducer, sliceKey } from './slice';
+
 // import UserAvatar from 'react-user-avatar';
 
 const data = {

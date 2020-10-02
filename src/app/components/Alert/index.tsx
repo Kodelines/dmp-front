@@ -1,3 +1,4 @@
+import { IconPin } from 'app/components/customIcons';
 /**
  *
  * Alert
@@ -5,7 +6,6 @@
  */
 import React from 'react';
 import styled from 'styled-components/macro';
-import { IconPin } from 'app/components/customIcons';
 import colors from 'styles/colors';
 
 interface Props {

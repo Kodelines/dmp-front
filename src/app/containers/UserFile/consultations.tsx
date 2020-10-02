@@ -1,14 +1,15 @@
-import React, { useState } from 'react';
-import styled from 'styled-components/macro';
-import { Row, Button, Modal, List, Col, Divider } from 'antd';
-import { AutoForm } from 'uniforms-antd';
-import shortid from 'shortid';
+import 'dayjs/locale/fr';
+
+import { Button, Col, Divider, List, Modal, Row } from 'antd';
 import dayjs from 'dayjs';
+import React, { useState } from 'react';
+import { useParams } from 'react-router-dom';
+import shortid from 'shortid';
+import styled from 'styled-components/macro';
+import { AutoForm } from 'uniforms-antd';
+import capitalize from 'utils/capitalize';
 
 import { consultationSchema } from './schemas';
-import 'dayjs/locale/fr';
-import capitalize from 'utils/capitalize';
-import { useParams } from 'react-router-dom';
 
 var localizedFormat = require('dayjs/plugin/localizedFormat');
 dayjs.extend(localizedFormat);

@@ -1,7 +1,7 @@
 /* craco.config.js */
 const CracoAntDesignPlugin = require('craco-antd');
-// const CracoLessPlugin = require('craco-less');
 const AntdDayjsWebpackPlugin = require('antd-dayjs-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   plugins: [
@@ -48,5 +48,25 @@ module.exports = {
   ],
   webpack: {
     plugins: [new AntdDayjsWebpackPlugin()],
+    configure: (webpackConfig, { env, paths }) => {
+      webpackConfig = {
+        ...webpackConfig,
+        plugins: [
+          ...webpackConfig.plugins.filter(element => {
+            if (element.options) {
+              return !element.options.hasOwnProperty('ignoreOrder');
+            }
+            return true;
+          }),
+          new MiniCssExtractPlugin({
+            filename: 'static/css/[name].[contenthash:8].css',
+            moduleFilename: this.moduleFilename,
+            ignoreOrder: true,
+            chunkFilename: 'static/css/[name].[contenthash:8].chunk.css',
+          }),
+        ],
+      };
+      return webpackConfig;
+    },
   },
 };

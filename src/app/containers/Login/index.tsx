@@ -4,18 +4,18 @@
  *
  */
 
+import { Button, Form, Input, Switch, Typography } from 'antd';
 import React, { memo } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components/macro';
-
-import { useInjectReducer, useInjectSaga } from 'utils/redux-injectors';
-import { reducer, sliceKey } from './slice';
-import { selectLogin } from './selectors';
-import { loginSaga } from './saga';
-import { Typography, Form, Input, Switch, Button } from 'antd';
 import colors from 'styles/colors';
+import { useInjectReducer, useInjectSaga } from 'utils/redux-injectors';
+
+import { loginSaga } from './saga';
+import { selectLogin } from './selectors';
+import { reducer, sliceKey } from './slice';
 
 const backImage = require('assets/images/login.jpg');
 
@@ -163,10 +163,6 @@ const LeftPanel = styled.div`
 const FlexibleContainer = styled.div`
   display: flex;
   flex-direction: column;
-
-  .ant-btn {
-    padding-top: 12px;
-  }
 `;
 
 const RightPanel = styled.div`

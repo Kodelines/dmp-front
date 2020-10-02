@@ -4,20 +4,20 @@
  *
  */
 
+import { Col, Divider, Row, Typography } from 'antd';
+import { Container } from 'app/components/Container';
 import React, { memo } from 'react';
 import { Helmet } from 'react-helmet-async';
 // import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 // import styled from 'styled-components/macro';
 import { AutoFields, AutoForm, SubmitField } from 'uniforms-antd';
-import { Container } from 'app/components/Container';
-import { Row, Col, Typography, Divider } from 'antd';
-
 import { useInjectReducer, useInjectSaga } from 'utils/redux-injectors';
-import { reducer, sliceKey } from './slice';
-import { selectCreateUser } from './selectors';
+
 import { createUserSaga } from './saga';
 import { userSchema } from './schema';
+import { selectCreateUser } from './selectors';
+import { reducer, sliceKey } from './slice';
 
 const { Title } = Typography;
 
