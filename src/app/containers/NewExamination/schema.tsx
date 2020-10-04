@@ -1,4 +1,5 @@
 import Ajv from 'ajv';
+import FilePickerField from 'app/components/FilePickerField';
 import { LongTextField } from 'uniforms-antd';
 import JSONSchemaBridge from 'uniforms-bridge-json-schema';
 
@@ -287,6 +288,14 @@ const consultationJsonSchema = {
     gyneco_specelum: {
       type: 'string',
       label: 'Examen au speculum',
+    },
+    attachments: {
+      type: 'string',
+      uniforms: {
+        component: FilePickerField,
+        rows: 3,
+        multiple: true,
+      },
     },
   },
 };

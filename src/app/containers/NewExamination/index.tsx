@@ -306,6 +306,18 @@ export const NewExamination = memo((props: Props) => {
               </>
             )}
           <Divider />
+          {/* Pièces jointes */}
+          {formState['examen_type'] && (
+            <>
+              <h2>Fichiers à joindre</h2>
+              <Row gutter={16}>
+                <Col span={24}>
+                  <AutoFields fields={['attachments']} />
+                </Col>
+              </Row>
+            </>
+          )}
+          <Divider />
           <Row justify="end">
             <Col span={5}>
               <SubmitField block value="Enregistrer" />
