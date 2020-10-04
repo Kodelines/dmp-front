@@ -25,6 +25,7 @@ import { HospitalisationDetails } from './containers/HospitalisationDetails/Load
 import { Login } from './containers/Login/Loadable';
 import { NewConsultation } from './containers/NewConsultation/Loadable';
 import { NewExamination } from './containers/NewExamination/Loadable';
+import { NewHospitalisation } from './containers/NewHospitalisation/Loadable';
 import { Register } from './containers/Register/Loadable';
 import { UserFile } from './containers/UserFile/Loadable';
 
@@ -53,8 +54,13 @@ export function App() {
                 <Route exact path="/userfile/:id" component={UserFile} />
                 <Route
                   exact
-                  path="/userfile/:userId/examen/:id"
+                  path="/userfile/:userId/examination/:id"
                   component={ExaminationDetails}
+                />
+                <Route
+                  exact
+                  path="/userfile/:userId/add-examination"
+                  component={NewExamination}
                 />
                 <Route
                   exact
@@ -63,13 +69,13 @@ export function App() {
                 />
                 <Route
                   exact
-                  path="/userfile/:userId/consultation/add"
-                  component={NewConsultation}
+                  path="/userfile/:userId/add-hospitalisation"
+                  component={NewHospitalisation}
                 />
                 <Route
                   exact
-                  path="/userfile/:userId/examination/add"
-                  component={NewExamination}
+                  path="/userfile/:userId/consultation/add"
+                  component={NewConsultation}
                 />
               </Content>
             </Layout>

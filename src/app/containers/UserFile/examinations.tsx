@@ -191,7 +191,7 @@ export const Examination = () => {
           />
         </Col>
         <Col span={6} offset={4}>
-          <Button type="primary" href={`/userfile/${id}/examination/add`}>
+          <Button type="primary" href={`/userfile/${id}/add-examination`}>
             Ajouter un examen
           </Button>
         </Col>
@@ -223,7 +223,7 @@ export const Examination = () => {
                   <ListActionButton
                     text="Voir les détails"
                     icon={<FileSearchOutlined />}
-                    href={`/userfile/${id}/examen/${it.id}`}
+                    href={`/userfile/${id}/examination/${it.id}`}
                   />
                   <ListActionButton text="Modifier" icon={<EditFilled />} />
                   <ListActionButton danger icon={<DeleteFilled />} />

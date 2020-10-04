@@ -31,6 +31,7 @@ import { DeleteFilled, EditFilled } from '@ant-design/icons';
 import { hospitalisationDetailsSaga } from './saga';
 import { selectHospitalisationDetails } from './selectors';
 import { reducer, sliceKey } from './slice';
+import { history } from 'utils/history';
 
 // import UserAvatar from 'react-user-avatar';
 
@@ -111,7 +112,7 @@ export const HospitalisationDetails = memo((props: Props) => {
       </Helmet>
       <Container>
         <PageHeader
-          onBack={() => window.history.back()}
+          onBack={history.goBack}
           title="Moussa Diop"
           subTitle="Détails hospitalisation"
           extra={[

@@ -79,7 +79,7 @@ export const Hospitalisation = () => {
   return (
     <>
       <Row justify="end">
-        <Button type="primary" onClick={() => setdisplayHospitalisation(true)}>
+        <Button type="primary" href={`/userfile/${id}/add-hospitalisation`}>
           Ajouter une hospitalisation
         </Button>
       </Row>

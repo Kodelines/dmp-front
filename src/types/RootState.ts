@@ -9,6 +9,7 @@ import { HospitalisationDetailsState } from 'app/containers/HospitalisationDetai
 import { ExaminationDetailsState } from 'app/containers/ExaminationDetails/types';
 import { NewConsultationState } from 'app/containers/NewConsultation/types';
 import { NewExaminationState } from 'app/containers/NewExamination/types';
+import { NewHospitalisationState } from 'app/containers/NewHospitalisation/types';
 // [IMPORT NEW CONTAINERSTATE ABOVE] < Needed for generating containers seamlessly
 
 /* 
@@ -27,5 +28,6 @@ export interface RootState {
   examinationDetails?: ExaminationDetailsState;
   newConsultation?: NewConsultationState;
   newExamination?: NewExaminationState;
+  newHospitalisation?: NewHospitalisationState;
   // [INSERT NEW REDUCER KEY ABOVE] < Needed for generating containers seamlessly
 }
