@@ -36,6 +36,7 @@ jobs:
       - run:
           name: Deploy over SSH
           command: |
+            yarn build
             scp -r ~/repo/build/* root@178.128.161.183:var/www/dmp.milliapps.xyz/
 
 workflows:
