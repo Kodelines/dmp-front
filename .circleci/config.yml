@@ -28,8 +28,6 @@ jobs:
           path: ~/repo/artifacts
 
   deploy:
-    machine:
-      enabled: true
     working_directory: ~/repo
     docker:
       - image: circleci/node:12.18.2
