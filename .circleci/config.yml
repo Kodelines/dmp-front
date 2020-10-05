@@ -33,6 +33,9 @@ jobs:
       - image: circleci/node:12.18.2
     steps:
       - checkout
+      - add_ssh_keys:
+          fingerprints:
+            - "6a:f6:52:0c:d6:cc:d5:4b:8f:98:2f:37:f3:78:42:ed"
       - run:
           name: update-npm
           command: npx browserslist --update-db
