@@ -10,6 +10,7 @@ import React, { memo, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useDispatch, useSelector } from 'react-redux';
 import { AutoFields, AutoForm, SubmitField } from 'uniforms-antd';
+import { history } from 'utils/history';
 import { useInjectReducer, useInjectSaga } from 'utils/redux-injectors';
 
 import { newExaminationSaga } from './saga';
@@ -45,7 +46,7 @@ export const NewExamination = memo((props: Props) => {
       </Helmet>
       <Container>
         <PageHeader
-          onBack={() => window.history.back()}
+          onBack={history.goBack}
           title="Moussa Diop"
           subTitle="Nouvel examen"
         >

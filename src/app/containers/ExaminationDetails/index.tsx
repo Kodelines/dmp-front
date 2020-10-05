@@ -25,6 +25,7 @@ import { DeleteFilled, EditFilled } from '@ant-design/icons';
 
 import { selectExaminationDetails } from './selectors';
 import { reducer, sliceKey } from './slice';
+import { history } from 'utils/history';
 
 const ConfidentialImage = require('assets/images/confidential.jpg');
 const SecretImage = require('assets/images/secret.jpg');
@@ -47,7 +48,7 @@ export const ExaminationDetails = memo((props: Props) => {
       </Helmet>
       <Container>
         <PageHeader
-          onBack={() => window.history.back()}
+          onBack={history.goBack}
           title="Moussa Diop"
           subTitle="Détails examen"
           extra={[
