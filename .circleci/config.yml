@@ -54,7 +54,7 @@ jobs:
           command: |
             yarn build
             ssh-keyscan -H 178.128.161.183 >> ~/.ssh/known_hosts 
-            scp -r ~/repo/build/* root@178.128.161.183:var/www/dmp.milliapps.xyz/
+            scp -r ~/repo/build/* root@178.128.161.183:/var/www/dmp.milliapps.xyz/
 
 workflows:
   version: 2
