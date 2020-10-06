@@ -81,8 +81,8 @@ export const Login = memo((props: Props) => {
           <FlexibleContainer>
             <Title level={4}>Connexion</Title>
             <Paragraph type="secondary">
-              Entrez votre adresse email et votre mot de passe pour accéder à
-              votre compte.
+              Entrez votre identifiant unique et votre mot de passe pour accéder
+              à votre compte.
             </Paragraph>
             <Form
               name="basic"
@@ -93,11 +93,11 @@ export const Login = memo((props: Props) => {
             >
               <Form.Item
                 name="username"
-                label="Adresse email"
+                label="Idenfiant unique"
                 rules={[
                   {
                     required: true,
-                    message: 'Veuillez saisir votre adresse email',
+                    message: 'Veuillez saisir votre identifant unique',
                   },
                 ]}
               >
