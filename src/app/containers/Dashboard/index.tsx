@@ -18,7 +18,7 @@ import { useHistory } from 'react-router-dom';
 import styled from 'styled-components/macro';
 import { useInjectReducer, useInjectSaga } from 'utils/redux-injectors';
 
-import { UserAddOutlined } from '@ant-design/icons';
+import { UserAddOutlined, FileAddFilled } from '@ant-design/icons';
 
 import { dashboardSaga } from './saga';
 import { selectDashboard } from './selectors';
@@ -64,7 +64,7 @@ export const Dashboard = memo((props: Props) => {
           onSearch={handleClick}
           enterButton
         />
-        <Row>
+        <Row justify="center" gutter={16}>
           <Col span={6}>
             <BigButton
               type="primary"
@@ -72,6 +72,15 @@ export const Dashboard = memo((props: Props) => {
               icon={<UserAddOutlined />}
             >
               Nouveau dossier patient
+            </BigButton>
+          </Col>
+          <Col span={6}>
+            <BigButton
+              type="primary"
+              href="/uploaddoc"
+              icon={<FileAddFilled />}
+            >
+              Ajouter un document à un dossier patient
             </BigButton>
           </Col>
         </Row>
