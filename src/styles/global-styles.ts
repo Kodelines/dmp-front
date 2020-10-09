@@ -82,8 +82,32 @@ export const GlobalStyle = createGlobalStyle`
     padding: 16px 0px !important;
   }
 
+  .mt-1 {
+    margin-top: 10px;
+  }
+
+  .mt-2 {
+    margin-top: 20px;
+  }
+
   .mt-4 {
     margin-top: 40px;
+  }
+
+  .mb-1 {
+    margin-bottom: 10px;
+  }
+
+  .mb-2 {
+    margin-bottom: 20px;
+  }
+
+  .pb-1 {
+    padding-bottom: 10px;
+  }
+
+  .pb-2 {
+    padding-bottom: 20px;
   }
 
   .ant-timeline-item-content {
@@ -108,5 +132,9 @@ export const GlobalStyle = createGlobalStyle`
   .ant-select-selection-search {
     display: flex;
     align-items: center;
+  }
+
+  .border-b {
+    border-bottom: solid 1px #eee;
   }
 `;

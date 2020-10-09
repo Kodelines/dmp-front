@@ -9,8 +9,8 @@ import {
   Col,
   Comment,
   Descriptions,
-  Divider,
   Form,
+  Image,
   Input,
   List,
   Row,
@@ -20,10 +20,10 @@ import {
 } from 'antd';
 import { Container } from 'app/components/Container';
 import { PageHeader } from 'app/components/PageHeader';
-import React, { memo } from 'react';
+import React, { memo, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useDispatch, useSelector } from 'react-redux';
-// import styled from 'styled-components/macro';
+import styled from 'styled-components/macro';
 import { useInjectReducer, useInjectSaga } from 'utils/redux-injectors';
 
 import { DeleteFilled, EditFilled } from '@ant-design/icons';
@@ -32,8 +32,10 @@ import { hospitalisationDetailsSaga } from './saga';
 import { selectHospitalisationDetails } from './selectors';
 import { reducer, sliceKey } from './slice';
 import { history } from 'utils/history';
+import Dragger from 'antd/lib/upload/Dragger';
 
 // import UserAvatar from 'react-user-avatar';
+import { InboxOutlined } from '@ant-design/icons';
 
 const data = {
   patient: 'Moussa Diop',
@@ -50,6 +52,20 @@ const data = {
       directive:
         'Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Vestibulum id ligula porta felis euismod semper.',
       date: 'Ven. 12 Juin 2020 18:29',
+      files: [
+        {
+          url:
+            'https://images.unsplash.com/photo-1569982175971-d92b01cf8694?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3024&q=80',
+          thumbUrl:
+            'https://images.unsplash.com/photo-1569982175971-d92b01cf8694?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=200&q=80',
+        },
+        {
+          url:
+            'https://images.unsplash.com/photo-1517816428104-797678c7cf0c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3326&q=80',
+          thumbUrl:
+            'https://images.unsplash.com/photo-1517816428104-797678c7cf0c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=200&q=80',
+        },
+      ],
     },
     {
       author: 'Mathéo Renaud III',
@@ -83,16 +99,37 @@ export const HospitalisationDetails = memo((props: Props) => {
       <Form.Item label="Conduite à tenir">
         <Input.TextArea rows={2} onChange={onChange} value={value} />
       </Form.Item>
-      <Form.Item>
-        <Button
-          htmlType="submit"
-          loading={submitting}
-          onClick={onSubmit}
-          type="primary"
+      <Form.Item label="Fichier(s) à joindre" extra="" help="">
+        <Dragger
+          multiple
+          listType="picture"
+          action="https://next.json-generator.com/api/json/get/NylupQXUY"
+          accept=".doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,.pdf,.png,.tiff,.jpg,.jpeg,.bmp"
         >
-          Ajouter une note
-        </Button>
+          <StyledIcon>
+            <InboxOutlined size={54} />
+          </StyledIcon>
+          <p>Cliquez pour sélectionner ou glissez un ou plusieurs fichier(s)</p>
+          <Typography.Paragraph type="secondary">
+            Seuls les fichiers PDF, Word ou images sont acceptés
+          </Typography.Paragraph>
+        </Dragger>
       </Form.Item>
+      <Row justify="end">
+        <Col span={5}>
+          <Form.Item>
+            <Button
+              block
+              htmlType="submit"
+              loading={submitting}
+              onClick={onSubmit}
+              type="primary"
+            >
+              Enregistrer
+            </Button>
+          </Form.Item>
+        </Col>
+      </Row>
     </Form>
   );
 
@@ -100,6 +137,8 @@ export const HospitalisationDetails = memo((props: Props) => {
   const hospitalisationDetails = useSelector(selectHospitalisationDetails);
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const dispatch = useDispatch();
+
+  const [displayForm, setDisplayForm] = useState(false);
 
   return (
     <>
@@ -144,48 +183,79 @@ export const HospitalisationDetails = memo((props: Props) => {
             <Col>
               {/* <Typography.Title level={5}>Notes : </Typography.Title> */}
               <List
-                className="comment-list"
                 header={<Typography.Title level={5}>Notes : </Typography.Title>}
-                itemLayout="horizontal"
+                itemLayout="vertical"
                 dataSource={data.notes}
+                split
                 renderItem={item => (
-                  <li>
+                  <li className="border-b pb-1 mb-1">
                     <Comment
                       author={<a href="#mr3">{`Dr. ${item.author}`}</a>}
                       datetime={item.date}
                       // avatar={<UserAvatar size="42" name={item.author} />}
                       content={
                         <div>
-                          <Tag color="geekblue">
-                            Observations / Intervention
-                          </Tag>
-                          <p>{item.observation}</p>
-                          <Tag color="warning">Conduite à tenir</Tag>
-                          <p>{item.directive}</p>
-                          {/* <NotesDescriptions column={1} bordered>
-                            <Descriptions.Item label="Observation">
-                              {item.observation}
-                            </Descriptions.Item>
-                            <Descriptions.Item
-                              label="Conduite à tenir"
-                              span={16}
-                            >
-                              {item.directive}
-                            </Descriptions.Item>
-                          </NotesDescriptions> */}
+                          {item.observation && (
+                            <div className="mt-1">
+                              <Tag color="geekblue">
+                                Observations / Intervention
+                              </Tag>
+                              <p className="mt-1">{item.observation}</p>
+                            </div>
+                          )}
+                          {item.observation && (
+                            <div className="mt-1">
+                              <Tag color="warning">Conduite à tenir</Tag>
+                              <p className="mt-1">{item.directive}</p>
+                            </div>
+                          )}
+                          {item.files && (
+                            <div className="mt-2">
+                              <Typography.Text type="secondary">
+                                Fichier(s) joints
+                              </Typography.Text>
+
+                              <Row gutter={16} className="mt-1">
+                                {item.files.map(file => (
+                                  <Col>
+                                    <Image width={92} src={file.url} />
+                                  </Col>
+                                ))}
+                              </Row>
+                            </div>
+                          )}
                         </div>
                       }
                     />
                   </li>
                 )}
               />
-              <Divider />
-              <Editor
-                onChange={() => {}}
-                onSubmit={() => {}}
-                submitting={false}
-                value=""
-              />
+              {!displayForm && (
+                <Row justify="end" className="mt-2">
+                  <Col span={5}>
+                    <Button
+                      block
+                      type="primary"
+                      onClick={() => setDisplayForm(true)}
+                    >
+                      Ajouter une note
+                    </Button>
+                  </Col>
+                </Row>
+              )}
+              {displayForm && (
+                <Row className="mt-2">
+                  <Typography.Title level={5}>Nouvelle note</Typography.Title>
+                  <Col span={24}>
+                    <Editor
+                      onChange={() => {}}
+                      onSubmit={() => setDisplayForm(false)}
+                      submitting={false}
+                      value=""
+                    />
+                  </Col>
+                </Row>
+              )}
             </Col>
           </Row>
         </Space>
@@ -195,3 +265,6 @@ export const HospitalisationDetails = memo((props: Props) => {
 });
 
 // const NotesDescriptions = styled(Descriptions)``;
+const StyledIcon = styled.div`
+  font-size: 44px;
+`;

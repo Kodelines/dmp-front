@@ -1,6 +1,6 @@
 import 'dayjs/locale/fr';
 
-import { Button, Modal, Row, Timeline, Typography } from 'antd';
+import { Button, Divider, Modal, Row, Timeline, Typography } from 'antd';
 import { ListActionButton } from 'app/components/ListActionButton';
 import dayjs from 'dayjs';
 import React, { useState } from 'react';
@@ -83,7 +83,8 @@ export const Hospitalisation = () => {
           Ajouter une hospitalisation
         </Button>
       </Row>
-      <Row className="mt-4">
+      <Divider />
+      <Row>
         <Timeline mode="left">
           {data.map(item => (
             <Timeline.Item key={item.id}>

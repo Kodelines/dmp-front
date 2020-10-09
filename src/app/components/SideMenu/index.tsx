@@ -6,10 +6,11 @@ import { Layout, Menu } from 'antd';
  */
 import React, { memo } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useLocation } from 'react-router-dom';
 import styled from 'styled-components/macro';
 import colors from 'styles/colors';
 
-import { IconAddressBook, IconDashboard, IconDateTime } from '../customIcons';
+import { IconAddressBook, IconDashboard } from '../customIcons';
 
 interface Props {}
 
@@ -18,21 +19,22 @@ const { Header, Sider } = Layout;
 export const SideMenu = memo((props: Props) => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { t, i18n } = useTranslation();
+  const location = useLocation().pathname.replace('/', '');
 
   return (
     <FixedSidebar>
       <SidebarHeader>
         <h2>LOGO</h2>
       </SidebarHeader>
-      <MainMenu theme="light" defaultSelectedKeys={['1']} mode="inline">
-        <Menu.Item key="1" icon={<IconDashboard />}>
-          Dashboard
+      <MainMenu theme="light" selectedKeys={[location]} mode="inline">
+        <Menu.Item key="dashboard" icon={<IconDashboard />}>
+          <a href="/dashboard">Dashboard</a>
         </Menu.Item>
-        <Menu.Item key="2" icon={<IconAddressBook />}>
-          Collaborateurs
+        <Menu.Item key="medecin" icon={<IconAddressBook />}>
+          <a href="/medecin">Médécins</a>
         </Menu.Item>
-        <Menu.Item key="9" icon={<IconDateTime />}>
-          Absences
+        <Menu.Item key="patients" icon={<IconAddressBook />}>
+          <a href="/patients">Patients</a>
         </Menu.Item>
       </MainMenu>
     </FixedSidebar>
