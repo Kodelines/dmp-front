@@ -4,6 +4,7 @@ import { DashboardState } from 'app/containers/Dashboard/types';
 import { RegisterState } from 'app/containers/Register/types';
 import { ActivateState } from 'app/containers/Activate/types';
 import { CreateUserState } from 'app/containers/CreateUser/types';
+import { UploadUserDocState } from 'app/containers/UploadUserDoc/types';
 import { UserFileState } from 'app/containers/UserFile/types';
 import { HospitalisationDetailsState } from 'app/containers/HospitalisationDetails/types';
 import { ExaminationDetailsState } from 'app/containers/ExaminationDetails/types';
@@ -23,6 +24,7 @@ export interface RootState {
   register?: RegisterState;
   activate?: ActivateState;
   createUser?: CreateUserState;
+  uploadUserDoc?: UploadUserDocState;
   userFile?: UserFileState;
   hospitalisationDetails?: HospitalisationDetailsState;
   examinationDetails?: ExaminationDetailsState;

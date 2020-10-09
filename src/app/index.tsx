@@ -27,6 +27,7 @@ import { NewConsultation } from './containers/NewConsultation/Loadable';
 import { NewExamination } from './containers/NewExamination/Loadable';
 import { NewHospitalisation } from './containers/NewHospitalisation/Loadable';
 import { Register } from './containers/Register/Loadable';
+import { UploadUserDoc } from './containers/UploadUserDoc/Loadable';
 import { UserFile } from './containers/UserFile/Loadable';
 
 const { Content } = Layout;
@@ -51,6 +52,7 @@ export function App() {
               <Content>
                 <Route exact path="/dashboard" component={Dashboard} />
                 <Route exact path="/adduser" component={CreateUser} />
+                <Route exact path="/uploaddoc" component={UploadUserDoc} />
                 <Route exact path="/userfile/:id" component={UserFile} />
                 <Route
                   exact

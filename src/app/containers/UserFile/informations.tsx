@@ -36,3 +36,21 @@ export const Informations = () => {
     </div>
   );
 };
+
+export const ShortUserInformations = () => {
+  return (
+    <div>
+      <Space direction="vertical" size="large" className="d-block">
+        <Descriptions bordered size="default" column={{ md: 1, xs: 1 }}>
+          <Descriptions.Item label="Nom et prénom(s)">
+            Moussa Diop
+          </Descriptions.Item>
+          <Descriptions.Item label="Addresse">
+            20 Avenue du Général de Gaulle 95100
+          </Descriptions.Item>
+          <Descriptions.Item label="Téléphone">0605919114</Descriptions.Item>
+        </Descriptions>
+      </Space>
+    </div>
+  );
+};
