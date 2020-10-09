@@ -2,6 +2,7 @@ import {
   Button,
   Collapse,
   Descriptions,
+  Divider,
   List,
   Modal,
   Row,
@@ -127,6 +128,7 @@ export const Histories = () => {
           Ajouter un antécédent
         </Button>
       </Row>
+      <Divider />
       <div>
         <StyledCollapse defaultActiveKey={['familial']}>
           <Panel header="Antécédent familial" key="familial">

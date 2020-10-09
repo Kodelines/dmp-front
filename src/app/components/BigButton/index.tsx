@@ -17,7 +17,7 @@ export function BigButton({ children, icon, ...props }: Props) {
   return (
     <StyledButton block {...props}>
       {icon}
-      {children}
+      <span className="label"> {children} </span>
     </StyledButton>
   );
 }
@@ -30,12 +30,15 @@ const StyledButton = styled(Button)`
   justify-content: center;
   align-items: center;
   white-space: normal;
-  line-height: 1.4 !important;
 
   .anticon {
     position: relative;
     top: initial;
     font-size: 44px;
     margin: 32px 0;
+  }
+
+  .label {
+    line-height: 1.4 !important;
   }
 `;

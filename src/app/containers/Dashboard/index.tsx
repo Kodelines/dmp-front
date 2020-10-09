@@ -64,7 +64,7 @@ export const Dashboard = memo((props: Props) => {
           onSearch={handleClick}
           enterButton
         />
-        <Row justify="center" gutter={16}>
+        <Row justify="start" gutter={16}>
           <Col span={6}>
             <BigButton
               type="primary"
