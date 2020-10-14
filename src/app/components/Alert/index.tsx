@@ -11,23 +11,30 @@ import colors from 'styles/colors';
 interface Props {
   children: React.ReactNode;
   icon?: React.ReactNode;
-  color?: string;
+  // color?: string;
+  level?: 'notification' | 'warning' | 'danger';
   pinned?: boolean;
   onPinClicked?: (pinned) => void;
 }
 
 export default function Alert({
   children,
-  color,
+  level,
   icon,
   pinned,
   onPinClicked,
 }: Props) {
+  const finalColor =
+    level === 'notification'
+      ? '#0b24fb'
+      : level === 'warning'
+      ? '#ffc800'
+      : 'red';
   return (
-    <Div color={color}>
+    <Div color={finalColor}>
       {icon && (
         <LefSide>
-          <IconBox color={color}>{icon}</IconBox>
+          <IconBox color={finalColor}>{icon}</IconBox>
         </LefSide>
       )}
       <Content>{children}</Content>
@@ -65,13 +72,13 @@ const LefSide = styled.div`
 const IconBox = styled.div`
   background-color: ${props => props.color ?? '#fff'};
   border-radius: 50%;
-  height: 44px;
-  width: 44px;
+  height: 32px;
+  width: 32px;
   display: flex;
   justify-content: center;
   align-items: center;
   color: #fff;
-  font-size: 22px;
+  font-size: 16px;
 `;
 
 const Content = styled.div`
