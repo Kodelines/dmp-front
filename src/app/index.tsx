@@ -26,6 +26,7 @@ import { Login } from './containers/Login/Loadable';
 import { NewConsultation } from './containers/NewConsultation/Loadable';
 import { NewExamination } from './containers/NewExamination/Loadable';
 import { NewHospitalisation } from './containers/NewHospitalisation/Loadable';
+import { Profile } from './containers/Profile/Loadable';
 import { Register } from './containers/Register/Loadable';
 import { UploadUserDoc } from './containers/UploadUserDoc/Loadable';
 import { UserFile } from './containers/UserFile/Loadable';
@@ -79,6 +80,7 @@ export function App() {
                   path="/userfile/:userId/consultation/add"
                   component={NewConsultation}
                 />
+                <Route exact path="/profile" component={Profile} />
               </Content>
             </Layout>
           </FullHeightLayout>
