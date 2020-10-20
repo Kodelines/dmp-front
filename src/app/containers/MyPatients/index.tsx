@@ -15,7 +15,6 @@ import { selectMyPatients } from './selectors';
 import { myPatientsSaga } from './saga';
 import { Container } from 'app/components/Container';
 import {
-  Avatar,
   Button,
   Col,
   Divider,
