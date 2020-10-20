@@ -10,7 +10,7 @@ import { useLocation } from 'react-router-dom';
 import styled from 'styled-components/macro';
 import colors from 'styles/colors';
 
-import { IconAddressBook, IconDashboard } from '../customIcons';
+import { IconAddressBook, IconDashboard, IconPatients } from '../customIcons';
 
 interface Props {}
 
