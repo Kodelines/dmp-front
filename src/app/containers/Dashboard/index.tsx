@@ -95,46 +95,54 @@ export const Dashboard = memo((props: Props) => {
           onSearch={handleClick}
           enterButton
         />
+        <h3>Notifications importantes</h3>
         <Row justify="start" gutter={16}>
-          <Col span={6}>
-            <BigButton
-              type="primary"
-              href="/adduser"
-              icon={<UserAddOutlined />}
-            >
-              Nouveau dossier patient
-            </BigButton>
+          <Col span={12}>
+            <Space direction="vertical">
+              {notifications.length > 0 && (
+                <>
+                  <Row>
+                    {notifications.map(not => (
+                      <Col span={24}>
+                        <Alert level={not.level} icon={<FolderFilled />}>
+                          <Typography.Text>{not.title}</Typography.Text>
+                          <Typography.Text strong>
+                            {not.patient}
+                          </Typography.Text>
+                          <Typography.Text type="secondary">
+                            {not.content}
+                          </Typography.Text>
+                        </Alert>
+                      </Col>
+                    ))}
+                  </Row>
+                </>
+              )}
+            </Space>
           </Col>
-          <Col span={6}>
-            <BigButton
-              type="primary"
-              href="/uploaddoc"
-              icon={<FileAddFilled />}
-            >
-              Ajouter un document à un dossier patient
-            </BigButton>
+          <Col span={12}>
+            <Row gutter={16}>
+              <Col span={12}>
+                <BigButton
+                  type="primary"
+                  href="/adduser"
+                  icon={<UserAddOutlined />}
+                >
+                  Nouveau dossier patient
+                </BigButton>
+              </Col>
+              <Col span={12}>
+                <BigButton
+                  type="primary"
+                  href="/uploaddoc"
+                  icon={<FileAddFilled />}
+                >
+                  Ajouter un document à un dossier patient
+                </BigButton>
+              </Col>
+            </Row>
           </Col>
         </Row>
-        <Space className="mt-2" direction="vertical">
-          {notifications.length > 0 && (
-            <>
-              <h3>Notifications importantes</h3>
-              <Row>
-                {notifications.map(not => (
-                  <Col span={24}>
-                    <Alert level={not.level} icon={<FolderFilled />}>
-                      <Typography.Text>{not.title}</Typography.Text>
-                      <Typography.Text strong>{not.patient}</Typography.Text>
-                      <Typography.Text type="secondary">
-                        {not.content}
-                      </Typography.Text>
-                    </Alert>
-                  </Col>
-                ))}
-              </Row>
-            </>
-          )}
-        </Space>
       </Container>
     </>
   );

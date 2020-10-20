@@ -2,7 +2,7 @@ import React from 'react';
 import { createFromIconfontCN } from '@ant-design/icons';
 
 const AntDIcon = createFromIconfontCN({
-  scriptUrl: '//at.alicdn.com/t/font_1827187_s2860l6u4n8.js',
+  scriptUrl: '//at.alicdn.com/t/font_1827187_3oqcnfxm1n8.js',
 });
 
 export const IconDashboard = () => {
@@ -35,6 +35,10 @@ export const IconBill = () => {
 
 export const IconPulse = () => {
   return <AntDIcon type="icon-pulse" />;
+};
+
+export const IconDots = props => {
+  return <AntDIcon type="icon-dots" />;
 };
 
 export const Icon_ = () => {
