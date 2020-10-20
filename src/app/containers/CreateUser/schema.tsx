@@ -57,6 +57,17 @@ const createJsonSchema = {
     contacts_noms: { type: 'string', label: 'Nom et Prénoms' },
     contacts_phone: { type: 'string', label: 'Numéro de téléphone' },
     contacts_adresse: { type: 'string', label: 'Adresse complète' },
+    attending_doctor: {
+      type: 'string',
+      label: 'Médecin traitant',
+      options: [
+        { label: 'Isahella MacNeilage', value: '1234' },
+        { label: 'Annmarie Albrooke', value: '12345' },
+        { label: 'Danya Denisevich', value: '123456' },
+        { label: 'Hadley Delea', value: '1234567' },
+        { label: 'Murdock Cammish', value: '12345678' },
+      ],
+    },
   },
 };
 

@@ -23,7 +23,7 @@ export const Informations = () => {
           </Descriptions.Item>
         </Descriptions>
 
-        <h3>Personne à contacter en cas d'urgence :</h3>
+        <h3>Personne à contacter en cas d'urgence</h3>
 
         <Descriptions bordered size="default" column={{ md: 2, xs: 1 }}>
           <Descriptions.Item label="Nom et prénom(s)">
@@ -32,6 +32,8 @@ export const Informations = () => {
           <Descriptions.Item label="Téléphone">0605919114</Descriptions.Item>
           <Descriptions.Item label="Lien">Epouse</Descriptions.Item>
         </Descriptions>
+
+        <h3>Médecin traitant</h3>
       </Space>
     </div>
   );

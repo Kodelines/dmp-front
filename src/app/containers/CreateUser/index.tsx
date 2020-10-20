@@ -45,7 +45,7 @@ export const CreateUser = memo((props: Props) => {
         <Title level={5}>Nouveau dossier patient</Title>
         <Divider />
         <AutoForm schema={userSchema} showInlineError>
-          <Row gutter={36}>
+          <Row gutter={16}>
             <Col span={12}>
               <AutoFields
                 fields={['first_name', 'date_of_birth', 'sexe', 'phone_number']}
@@ -61,7 +61,7 @@ export const CreateUser = memo((props: Props) => {
               />
             </Col>
           </Row>
-          <Row gutter={36}>
+          <Row gutter={16}>
             <Col span={12}>
               <AutoFields fields={['type_document']} />
             </Col>
@@ -71,12 +71,18 @@ export const CreateUser = memo((props: Props) => {
           </Row>
           <h3 className="mt-4">Personne à prévenir en cas d'accident</h3>
           <Divider />
-          <Row gutter={36}>
+          <Row gutter={16}>
             <Col span={12}>
               <AutoFields fields={['contacts_lien', 'contacts_phone']} />
             </Col>
             <Col span={12}>
               <AutoFields fields={['contacts_noms', 'contacts_adresse']} />
+            </Col>
+          </Row>
+          <h3 className="mt-4">Affecter un médécin</h3>
+          <Row gutter={16}>
+            <Col span={12}>
+              <AutoFields fields={['attending_doctor']} />
             </Col>
           </Row>
           <Divider />
