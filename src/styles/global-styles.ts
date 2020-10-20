@@ -137,4 +137,8 @@ export const GlobalStyle = createGlobalStyle`
   .border-b {
     border-bottom: solid 1px #eee;
   }
+
+  .text-right {
+    text-align: right;
+  }
 `;

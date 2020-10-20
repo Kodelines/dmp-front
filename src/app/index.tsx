@@ -20,9 +20,11 @@ import { SideMenu } from './components/SideMenu';
 import { Activate } from './containers/Activate/Loadable';
 import { CreateUser } from './containers/CreateUser/Loadable';
 import { Dashboard } from './containers/Dashboard/Loadable';
+import { DoctorsList } from './containers/DoctorsList/Loadable';
 import { ExaminationDetails } from './containers/ExaminationDetails/Loadable';
 import { HospitalisationDetails } from './containers/HospitalisationDetails/Loadable';
 import { Login } from './containers/Login/Loadable';
+import { MyPatients } from './containers/MyPatients/Loadable';
 import { NewConsultation } from './containers/NewConsultation/Loadable';
 import { NewExamination } from './containers/NewExamination/Loadable';
 import { NewHospitalisation } from './containers/NewHospitalisation/Loadable';
@@ -80,6 +82,8 @@ export function App() {
                   path="/userfile/:userId/consultation/add"
                   component={NewConsultation}
                 />
+                <Route exact path="/doctors" component={DoctorsList} />
+                <Route exact path="/mypatients" component={MyPatients} />
                 <Route exact path="/profile" component={Profile} />
               </Content>
             </Layout>
