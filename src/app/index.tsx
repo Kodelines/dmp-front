@@ -28,6 +28,7 @@ import { MyPatients } from './containers/MyPatients/Loadable';
 import { NewConsultation } from './containers/NewConsultation/Loadable';
 import { NewExamination } from './containers/NewExamination/Loadable';
 import { NewHospitalisation } from './containers/NewHospitalisation/Loadable';
+import { Profile } from './containers/Profile/Loadable';
 import { Register } from './containers/Register/Loadable';
 import { UploadUserDoc } from './containers/UploadUserDoc/Loadable';
 import { UserFile } from './containers/UserFile/Loadable';
@@ -83,6 +84,7 @@ export function App() {
                 />
                 <Route exact path="/doctors" component={DoctorsList} />
                 <Route exact path="/mypatients" component={MyPatients} />
+                <Route exact path="/profile" component={Profile} />
               </Content>
             </Layout>
           </FullHeightLayout>
