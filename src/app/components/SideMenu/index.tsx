@@ -33,7 +33,7 @@ export const SideMenu = memo((props: Props) => {
         <Menu.Item key="doctors" icon={<IconAddressBook />}>
           <a href="/doctors">Médécins</a>
         </Menu.Item>
-        <Menu.Item key="mypatients" icon={<IconAddressBook />}>
+        <Menu.Item key="mypatients" icon={<IconPatients />}>
           <a href="/mypatients">Mes patients</a>
         </Menu.Item>
       </MainMenu>
