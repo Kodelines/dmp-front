@@ -41,6 +41,10 @@ export const IconPatients = () => {
   return <AntDIcon type="icon-patient" />;
 };
 
+export const IconDots = props => {
+  return <AntDIcon type="icon-dots" />;
+};
+
 export const Icon_ = () => {
   return <AntDIcon type="icon" />;
 };
