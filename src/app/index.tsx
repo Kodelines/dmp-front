@@ -24,7 +24,7 @@ import { DoctorsList } from './containers/DoctorsList/Loadable';
 import { ExaminationDetails } from './containers/ExaminationDetails/Loadable';
 import { HospitalisationDetails } from './containers/HospitalisationDetails/Loadable';
 import { Login } from './containers/Login/Loadable';
-import { MyPatients } from './containers/MyPatients';
+import { MyPatients } from './containers/MyPatients/Loadable';
 import { NewConsultation } from './containers/NewConsultation/Loadable';
 import { NewExamination } from './containers/NewExamination/Loadable';
 import { NewHospitalisation } from './containers/NewHospitalisation/Loadable';
