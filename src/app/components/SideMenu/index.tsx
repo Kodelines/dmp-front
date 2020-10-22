@@ -10,7 +10,7 @@ import { useLocation } from 'react-router-dom';
 import styled from 'styled-components/macro';
 import colors from 'styles/colors';
 
-import { IconAddressBook, IconDashboard, IconPatients } from '../customIcons';
+import { IconAddressBook, IconHome, IconPatients } from '../customIcons';
 
 interface Props {}
 
@@ -27,8 +27,8 @@ export const SideMenu = memo((props: Props) => {
         <h2>LOGO</h2>
       </SidebarHeader>
       <MainMenu theme="light" selectedKeys={[location]} mode="inline">
-        <Menu.Item key="dashboard" icon={<IconDashboard />}>
-          <a href="/dashboard">Dashboard</a>
+        <Menu.Item key="dashboard" icon={<IconHome />}>
+          <a href="/dashboard">Accueil</a>
         </Menu.Item>
         <Menu.Item key="doctors" icon={<IconAddressBook />}>
           <a href="/doctors">Médécins</a>

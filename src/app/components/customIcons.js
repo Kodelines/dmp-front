@@ -2,7 +2,7 @@ import React from 'react';
 import { createFromIconfontCN } from '@ant-design/icons';
 
 const AntDIcon = createFromIconfontCN({
-  scriptUrl: '//at.alicdn.com/t/font_1827187_xacerirkzt.js',
+  scriptUrl: '//at.alicdn.com/t/font_1827187_48eiqw33smd.js',
 });
 
 export const IconDashboard = () => {
@@ -43,6 +43,10 @@ export const IconPatients = () => {
 
 export const IconDots = props => {
   return <AntDIcon type="icon-dots" />;
+};
+
+export const IconHome = () => {
+  return <AntDIcon type="icon-home" />;
 };
 
 export const Icon_ = () => {
