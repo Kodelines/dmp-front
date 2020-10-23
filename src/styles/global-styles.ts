@@ -82,6 +82,10 @@ export const GlobalStyle = createGlobalStyle`
     padding: 16px 0px !important;
   }
 
+  .mt-0 {
+    margin-top: 0px;
+  }
+
   .mt-1 {
     margin-top: 10px;
   }
@@ -92,6 +96,10 @@ export const GlobalStyle = createGlobalStyle`
 
   .mt-4 {
     margin-top: 40px;
+  }
+
+  .mb-0 {
+    margin-bottom: 0px;
   }
 
   .mb-1 {
