@@ -1,4 +1,4 @@
-import { Avatar, Descriptions, Space } from 'antd';
+import { Descriptions, Space } from 'antd';
 import React from 'react';
 
 export const Informations = () => {
@@ -32,18 +32,6 @@ export const Informations = () => {
           <Descriptions.Item label="Téléphone">0605919114</Descriptions.Item>
           <Descriptions.Item label="Lien">Epouse</Descriptions.Item>
         </Descriptions>
-
-        <h3>Médecin traitant</h3>
-
-        <Space size="middle">
-          <Avatar
-            src={
-              'https://source.unsplash.com/collection/1831207/120x120?seed=12'
-            }
-            size={44}
-          />
-          <a href="##">Dr. Hadley Delea</a>
-        </Space>
       </Space>
     </div>
   );
