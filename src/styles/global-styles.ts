@@ -12,6 +12,13 @@ export const GlobalStyle = createGlobalStyle`
     font-family: "Fira Sans", "Helvetica Neue For Number", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
 
+  img {
+    max-width: 100%;
+    max-height: 100%;
+    height: auto;
+    width: auto;
+  }
+
   .ant-menu-inline, .ant-menu-vertical, .ant-menu-vertical-left {
     border-right: none;
     overflow-x: hidden;
