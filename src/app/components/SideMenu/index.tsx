@@ -12,6 +12,8 @@ import colors from 'styles/colors';
 
 import { IconAddressBook, IconHome, IconPatients } from '../customIcons';
 
+const logoSrc = require('assets/images/logo.png');
+
 interface Props {}
 
 const { Header, Sider } = Layout;
@@ -24,7 +26,7 @@ export const SideMenu = memo((props: Props) => {
   return (
     <FixedSidebar>
       <SidebarHeader>
-        <h2>LOGO</h2>
+        <StyledLogo src={logoSrc} />
       </SidebarHeader>
       <MainMenu theme="light" selectedKeys={[location]} mode="inline">
         <Menu.Item key="dashboard" icon={<IconHome />}>
@@ -41,7 +43,7 @@ export const SideMenu = memo((props: Props) => {
   );
 });
 
-// const Div = styled.div``;
+const StyledLogo = styled.img``;
 
 const FixedSidebar = styled(Sider)`
   overflow: auto;
@@ -61,7 +63,7 @@ const MainMenu = styled(Menu)`
 
 const SidebarHeader = styled(Header)`
   background-color: ${colors.secondaryLighter};
-  padding: 20px 20px;
+  padding: 10px 20px;
   line-height: 1;
 
   h2 {
