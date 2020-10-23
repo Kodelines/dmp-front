@@ -49,6 +49,10 @@ export const IconEdit = () => {
   return <AntDIcon type="icon-edit" />;
 };
 
+export const IconHome = () => {
+  return <AntDIcon type="icon-home" />;
+};
+
 export const Icon_ = () => {
   return <AntDIcon type="icon" />;
 };

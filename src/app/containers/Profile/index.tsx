@@ -24,8 +24,8 @@ import {
   Space,
   Tabs,
 } from 'antd';
-import { AutoFields, AutoForm, SubmitField } from 'uniforms-antd';
-import schema from './schema';
+// import { AutoFields, AutoForm, SubmitField } from 'uniforms-antd';
+// import schema from './schema';
 import { IconDots, IconEdit } from 'app/components/customIcons';
 
 interface Props {}
@@ -109,12 +109,22 @@ export const Profile = memo((props: Props) => {
                     <Descriptions.Item label="Email">
                       dioussou@johnhopkins.edu
                     </Descriptions.Item>
-                    {/* <Descriptions.Item label="Adresse">
-                      17 Rue Moussé Diop, Cité Keur Guorgui. Dakar, Sénégal
-                    </Descriptions.Item> */}
+                    <Descriptions.Item label="Adresse">
+                      17 Rue Moussé Diop,
+                      <br />
+                      Cité Keur Guorgui.
+                      <br />
+                      Dakar, Sénégal
+                    </Descriptions.Item>
                   </Descriptions>
-                </Col>
-                <Col span={12}>
+                  <Divider />
+                  <h3>Etat-Civil</h3>
+                  <Descriptions column={1} size="middle" bordered>
+                    <Descriptions.Item label="Situat. Matrim.">
+                      Marié
+                    </Descriptions.Item>
+                  </Descriptions>
+                  <Divider />
                   <h3>Contacts d'urgence</h3>
                   <Descriptions column={1} size="middle" bordered>
                     <Descriptions.Item label="Nom">
@@ -122,6 +132,34 @@ export const Profile = memo((props: Props) => {
                     </Descriptions.Item>
                     <Descriptions.Item label="Téléphone">
                       77.123.45.67
+                    </Descriptions.Item>
+                  </Descriptions>
+                </Col>
+                <Col span={12}>
+                  <h3>Citoyenneté</h3>
+                  <Descriptions column={1} size="middle" bordered>
+                    <Descriptions.Item label="Nationnalité">
+                      Sénégalaise
+                    </Descriptions.Item>
+                    <Descriptions.Item label="Carte d'ID">
+                      5124098135678
+                    </Descriptions.Item>
+                    <Descriptions.Item label="Genre">Homme</Descriptions.Item>
+                    <Descriptions.Item label="Date de naissance">
+                      17/03/1984
+                    </Descriptions.Item>
+                    <Descriptions.Item label="Lieu de naissance">
+                      Thiès
+                    </Descriptions.Item>
+                    <Descriptions.Item label="Pays de naissance">
+                      Côte d'Ivoire
+                    </Descriptions.Item>
+                  </Descriptions>
+                  <Divider />
+                  <h3>Charges</h3>
+                  <Descriptions column={1} size="middle" bordered>
+                    <Descriptions.Item label="Nombre d'enfants">
+                      2 enfants
                     </Descriptions.Item>
                   </Descriptions>
                 </Col>
