@@ -4,7 +4,7 @@
  *
  */
 
-import { Tabs, Typography } from 'antd';
+import { Avatar, Col, Row, Space, Tabs, Typography } from 'antd';
 import { Container } from 'app/components/Container';
 import React, { memo } from 'react';
 import { Helmet } from 'react-helmet-async';
@@ -48,7 +48,25 @@ export const UserFile = memo((props: Props) => {
         <meta name="description" content="Description of UserFile" />
       </Helmet>
       <Container>
-        <Title level={4}>Moussa Diop</Title>
+        <Row justify="space-between" align="middle">
+          <Col>
+            <Title level={4}>Moussa Diop</Title>
+          </Col>
+          <Col>
+            <Space size="middle">
+              <Typography.Text type="secondary">
+                Médécin traitant :
+              </Typography.Text>
+              <Avatar
+                src={
+                  'https://source.unsplash.com/collection/1831207/120x120?seed=12'
+                }
+                size={32}
+              />
+              <a href="##">Dr. Hadley Delea</a>
+            </Space>
+          </Col>
+        </Row>
 
         <StyledTabs defaultActiveKey="informations" animated={false}>
           <TabPane tab="Informations générales" key="informations">
