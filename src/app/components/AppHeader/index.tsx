@@ -20,7 +20,6 @@ import styled from 'styled-components/macro';
 import {
   CaretDownOutlined,
   LogoutOutlined,
-  SettingOutlined,
   UserOutlined,
 } from '@ant-design/icons';
 
@@ -41,9 +40,7 @@ export const AppHeader = memo((props: Props) => {
       <Menu.Item icon={<UserOutlined />}>
         <a href="/profile">Mon compte</a>
       </Menu.Item>
-      <Menu.Item icon={<SettingOutlined />}>
-        <a href="/parameters">Paramètres</a>
-      </Menu.Item>
+
       <Menu.Divider />
       <Menu.Item>
         <Button icon={<LogoutOutlined />} type="primary">
