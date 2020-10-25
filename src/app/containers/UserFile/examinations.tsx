@@ -190,7 +190,12 @@ export const Examination = () => {
             max={new Date().toDateString()}
           />
         </Col>
-        <Col span={6} offset={4}>
+        <Col span={3}>
+          <Button type="primary" style={{ height: 30 }}>
+            Valider
+          </Button>
+        </Col>
+        <Col span={3} push={1}>
           <Button type="primary" href={`/userfile/${id}/add-examination`}>
             Ajouter un examen
           </Button>
