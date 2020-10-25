@@ -81,7 +81,7 @@ const menu = (
     </Menu.Item>
     <Menu.Item>
       <a target="_blank" rel="noopener noreferrer" href="##">
-        Supprimer
+        Suspendre l'accès
       </a>
     </Menu.Item>
   </Menu>
