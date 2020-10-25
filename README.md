@@ -1,4 +1,11 @@
-# MDP Front Beta v0.4
+# DMP Front
+
+![CircleCI](https://img.shields.io/circleci/build/github/Kodelines/dmp-front?style=for-the-badge)
+![GitHub package.json version](https://img.shields.io/github/package-json/v/Kodelines/dmp-front?style=for-the-badge)
+![GitHub repo size](https://img.shields.io/github/repo-size/Kodelines/dmp-front?style=for-the-badge)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/Kodelines/dmp-front?style=for-the-badge)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/Kodelines/dmp-front?style=for-the-badge)
+![GitHub last commit](https://img.shields.io/github/last-commit/Kodelines/dmp-front?style=for-the-badge)
 
 Using :
 
