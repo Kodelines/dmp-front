@@ -37,11 +37,6 @@ const menu = (
         Modifier
       </a>
     </Menu.Item>
-    <Menu.Item>
-      <a target="_blank" rel="noopener noreferrer" href="##">
-        Suspendre l'accès
-      </a>
-    </Menu.Item>
   </Menu>
 );
 
