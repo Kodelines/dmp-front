@@ -20,6 +20,8 @@ import {
   Col,
   Descriptions,
   Divider,
+  Dropdown,
+  Menu,
   Row,
   Space,
   Tabs,
@@ -27,6 +29,14 @@ import {
 // import { AutoFields, AutoForm, SubmitField } from 'uniforms-antd';
 // import schema from './schema';
 import { IconDots, IconEdit } from 'app/components/customIcons';
+
+const menu = (
+  <Menu>
+    <Menu.Item>Suspendre l'accès</Menu.Item>
+    <Menu.Divider />
+    <Menu.Item disabled>Autre actions</Menu.Item>
+  </Menu>
+);
 
 interface Props {}
 
@@ -68,7 +78,14 @@ export const Profile = memo((props: Props) => {
             <Col>
               <Space size="middle">
                 <StyledButton icon={<IconEdit />}>Modifier</StyledButton>
-                <StyledButton icon={<IconDots />} />
+
+                <Dropdown
+                  overlay={menu}
+                  placement="bottomRight"
+                  trigger={['click']}
+                >
+                  <StyledButton icon={<IconDots />} />
+                </Dropdown>
               </Space>
             </Col>
           </Row>
