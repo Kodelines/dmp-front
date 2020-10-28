@@ -38,11 +38,11 @@ export const CreateUser = memo((props: Props) => {
   return (
     <>
       <Helmet>
-        <title>Nouveau dossier patient</title>
+        <title>Nouveau patient</title>
         <meta name="description" content="Description of create user" />
       </Helmet>
       <Container>
-        <Title level={5}>Nouveau dossier patient</Title>
+        <Title level={5}>Enrégister un nouveau patient</Title>
         <Divider />
         <AutoForm schema={userSchema} showInlineError>
           <Row gutter={16}>
