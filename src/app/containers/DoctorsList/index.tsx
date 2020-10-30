@@ -135,7 +135,9 @@ export const DoctorsList = memo((props: Props) => {
                 </Col>
                 <Col span={8}>
                   <div>
-                    <a href="##">{item.firstName + ' ' + item.lastName}</a>
+                    <a href="/profile">
+                      {item.firstName + ' ' + item.lastName}
+                    </a>
                   </div>
                   <div>{item.email}</div>
                 </Col>
