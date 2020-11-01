@@ -44,7 +44,7 @@ export const AppHeader = memo((props: Props) => {
       <Menu.Divider />
       <Menu.Item>
         <Button icon={<LogoutOutlined />} type="primary">
-          Déconnexion
+          Me déconnecter
         </Button>
       </Menu.Item>
     </Menu>
@@ -54,9 +54,12 @@ export const AppHeader = memo((props: Props) => {
     <MainHeader>
       <Container align="flex-end" noPadding>
         <Space size="large" align="center" direction="horizontal">
-          <Badge count={5}>
-            <IconBell />
-          </Badge>
+          <a href="/profile">
+            <Badge count={5}>
+              <IconBell />
+            </Badge>
+          </a>
+
           <Dropdown overlay={menu} placement="bottomRight" trigger={['click']}>
             <div>
               <Space size="small">

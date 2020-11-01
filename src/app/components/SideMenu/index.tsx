@@ -9,8 +9,12 @@ import { useTranslation } from 'react-i18next';
 import { useLocation } from 'react-router-dom';
 import styled from 'styled-components/macro';
 import colors from 'styles/colors';
-
-import { IconAddressBook, IconHome, IconPatients } from '../customIcons';
+import {
+  IconAddressBook,
+  IconBell,
+  IconHome,
+  IconPatients,
+} from '../customIcons';
 
 const logoSrc = require('assets/images/logo.png');
 
@@ -37,6 +41,9 @@ export const SideMenu = memo((props: Props) => {
         </Menu.Item>
         <Menu.Item key="mypatients" icon={<IconPatients />}>
           <a href="/mypatients">Mes patients</a>
+        </Menu.Item>
+        <Menu.Item key="mynotifications" icon={<IconBell />}>
+          <a href="/mynotifications">Mes notifications</a>
         </Menu.Item>
       </MainMenu>
     </FixedSidebar>

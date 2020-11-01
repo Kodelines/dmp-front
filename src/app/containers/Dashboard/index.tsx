@@ -18,7 +18,11 @@ import { useHistory } from 'react-router-dom';
 import styled from 'styled-components/macro';
 import { useInjectReducer, useInjectSaga } from 'utils/redux-injectors';
 
-import { UserAddOutlined, FileAddFilled } from '@ant-design/icons';
+import {
+  UserAddOutlined,
+  FileAddFilled,
+  FolderOpenFilled,
+} from '@ant-design/icons';
 
 import { dashboardSaga } from './saga';
 import { selectDashboard } from './selectors';
@@ -121,16 +125,27 @@ export const Dashboard = memo((props: Props) => {
             </Space>
           </Col>
           <Col span={12}>
-            <Row gutter={16}>
+            <Row gutter={[24, 16]}>
               <Col span={12}>
                 <BigButton
                   type="primary"
                   href="/adduser"
                   icon={<UserAddOutlined />}
                 >
-                  Enrégister un nouveau patient
+                  Enrégistrer un nouveau patient
                 </BigButton>
               </Col>
+              <Col span={12}>
+                <BigButton
+                  type="primary"
+                  href="/opendoc"
+                  icon={<FolderOpenFilled />}
+                >
+                  Ouvrir nouveau dossier patient
+                </BigButton>
+              </Col>
+            </Row>
+            <Row gutter={[16, 24]}>
               <Col span={12}>
                 <BigButton
                   type="primary"

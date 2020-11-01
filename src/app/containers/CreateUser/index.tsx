@@ -42,7 +42,7 @@ export const CreateUser = memo((props: Props) => {
         <meta name="description" content="Description of create user" />
       </Helmet>
       <Container>
-        <Title level={5}>Enrégister un nouveau patient</Title>
+        <Title level={5}>Enrégistrer un nouveau patient</Title>
         <Divider />
         <AutoForm schema={userSchema} showInlineError>
           <Row gutter={16}>
@@ -79,12 +79,7 @@ export const CreateUser = memo((props: Props) => {
               <AutoFields fields={['contacts_noms', 'contacts_adresse']} />
             </Col>
           </Row>
-          <h3 className="mt-4">Affecter un médécin</h3>
-          <Row gutter={16}>
-            <Col span={12}>
-              <AutoFields fields={['attending_doctor']} />
-            </Col>
-          </Row>
+
           <Divider />
           <Row justify="end">
             <Col span={5}>

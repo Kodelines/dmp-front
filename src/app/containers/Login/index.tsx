@@ -16,6 +16,7 @@ import { useInjectReducer, useInjectSaga } from 'utils/redux-injectors';
 import { loginSaga } from './saga';
 import { selectLogin } from './selectors';
 import { reducer, sliceKey } from './slice';
+const logoSrc = require('assets/images/logo.png');
 
 const backImage = require('assets/images/login.jpg');
 
@@ -67,6 +68,7 @@ export const Login = memo((props: Props) => {
   const year = new Date().getFullYear();
 
   const quote = quotes[Math.floor(Math.random() * quotes.length)];
+  const StyledLogo = styled.img``;
 
   return (
     <>
@@ -77,7 +79,7 @@ export const Login = memo((props: Props) => {
       {/* <Div>{t('')}</Div> */}
       <LoginPage>
         <LeftPanel>
-          <h1>LOGO</h1>
+          <StyledLogo src={logoSrc} />
           <FlexibleContainer>
             <Title level={4}>Connexion</Title>
             <Paragraph type="secondary">

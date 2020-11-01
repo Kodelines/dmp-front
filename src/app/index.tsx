@@ -31,6 +31,9 @@ import { NewHospitalisation } from './containers/NewHospitalisation/Loadable';
 import { Profile } from './containers/Profile/Loadable';
 import { Register } from './containers/Register/Loadable';
 import { UploadUserDoc } from './containers/UploadUserDoc/Loadable';
+import { OpenUserDoc } from './containers/OpenUserDoc/Loadable';
+import { MyNotifications } from './containers/MyNotifications/Loadable';
+
 import { UserFile } from './containers/UserFile/Loadable';
 
 const { Content } = Layout;
@@ -56,6 +59,8 @@ export function App() {
                 <Route exact path="/dashboard" component={Dashboard} />
                 <Route exact path="/adduser" component={CreateUser} />
                 <Route exact path="/uploaddoc" component={UploadUserDoc} />
+                <Route exact path="/opendoc" component={OpenUserDoc} />
+
                 <Route exact path="/userfile/:id" component={UserFile} />
                 <Route
                   exact
@@ -85,6 +90,11 @@ export function App() {
                 <Route exact path="/doctors" component={DoctorsList} />
                 <Route exact path="/mypatients" component={MyPatients} />
                 <Route exact path="/profile" component={Profile} />
+                <Route
+                  exact
+                  path="/mynotifications"
+                  component={MyNotifications}
+                />
               </Content>
             </Layout>
           </FullHeightLayout>

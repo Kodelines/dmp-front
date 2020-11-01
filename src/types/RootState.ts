@@ -14,6 +14,8 @@ import { NewHospitalisationState } from 'app/containers/NewHospitalisation/types
 import { DoctorsListState } from 'app/containers/DoctorsList/types';
 import { MyPatientsState } from 'app/containers/MyPatients/types';
 import { ProfileState } from 'app/containers/Profile/types';
+import { OpenUserDocState } from '../app/containers/OpenUserDoc/types';
+import { MyNotificationsState } from '../app/containers/MyNotifications/types';
 // [IMPORT NEW CONTAINERSTATE ABOVE] < Needed for generating containers seamlessly
 
 /* 
@@ -28,6 +30,7 @@ export interface RootState {
   activate?: ActivateState;
   createUser?: CreateUserState;
   uploadUserDoc?: UploadUserDocState;
+  openUserDoc?: OpenUserDocState;
   userFile?: UserFileState;
   hospitalisationDetails?: HospitalisationDetailsState;
   examinationDetails?: ExaminationDetailsState;
@@ -36,6 +39,7 @@ export interface RootState {
   newHospitalisation?: NewHospitalisationState;
   doctorsList?: DoctorsListState;
   myPatients?: MyPatientsState;
+  myNotifications?: MyNotificationsState;
   profile?: ProfileState;
   // [INSERT NEW REDUCER KEY ABOVE] < Needed for generating containers seamlessly
 }
