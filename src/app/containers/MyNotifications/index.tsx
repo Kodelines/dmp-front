@@ -7,14 +7,13 @@
 import React, { memo } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useSelector, useDispatch } from 'react-redux';
-import styled from 'styled-components/macro';
 
 import { useInjectReducer, useInjectSaga } from 'utils/redux-injectors';
 import { reducer, sliceKey } from './slice';
 import { selectMyNotifications } from './selectors';
 import { myNotificationsSaga } from './saga';
 import { Container } from 'app/components/Container';
-import { Col, Divider, List, PageHeader, Row, Space, Typography } from 'antd';
+import { Col, Divider, PageHeader, Row, Space, Typography } from 'antd';
 import Alert from 'app/components/Alert/index';
 import { FolderFilled } from '@ant-design/icons';
 
