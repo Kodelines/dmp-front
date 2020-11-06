@@ -10,3 +10,18 @@ export const selectLogin = createSelector(
   [selectDomain],
   loginState => loginState,
 );
+
+export const selectIsLoading = createSelector(
+  [selectDomain],
+  loginState => loginState.loading,
+);
+
+export const selectLoginStatus = createSelector(
+  [selectDomain],
+  loginState => loginState.status,
+);
+
+export const selectLoginError = createSelector(
+  [selectDomain],
+  loginState => loginState.error,
+);

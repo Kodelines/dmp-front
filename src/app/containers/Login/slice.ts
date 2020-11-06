@@ -5,13 +5,26 @@ import { PayloadAction } from '@reduxjs/toolkit';
 import { ContainerState } from './types';
 
 // The initial state of the Login container
-export const initialState: ContainerState = {};
+export const initialState: ContainerState = {
+  loading: false,
+};
 
 const loginSlice = createSlice({
   name: 'login',
   initialState,
   reducers: {
-    someAction(state, action: PayloadAction<any>) {},
+    login(state, action: PayloadAction<{ id: string; password: string }>) {
+      state.loading = true;
+    },
+    loginSuccess(state) {
+      state.loading = false;
+      state.status = 'success';
+    },
+    loginError(state, action: PayloadAction<string>) {
+      state.loading = false;
+      state.status = 'error';
+      state.error = action.payload;
+    },
   },
 });
 
