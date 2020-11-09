@@ -3,7 +3,7 @@ import axios from 'axios';
 export const TOKEN_KEY = 'jwt';
 export const USER_KEY = 'user';
 
-const API_URL = 'http://localhost:3001/api/v1';
+const API_URL = 'https://lily.loca.lt';
 
 axios.interceptors.response.use(
   response => response,

@@ -2,7 +2,7 @@ import { call, put, takeLatest } from 'redux-saga/effects';
 // import { actions } from './slice';
 import { AnyAction } from '@reduxjs/toolkit';
 import { actions } from './slice';
-import authService, { TOKEN_KEY } from 'services/auth.service';
+import authService, { TOKEN_KEY, USER_KEY } from 'services/auth.service';
 import { history } from 'utils/history';
 
 export function* login({ payload: { id, password } }: AnyAction) {
@@ -16,7 +16,8 @@ export function* login({ payload: { id, password } }: AnyAction) {
     console.log('login data : ', data);
 
     // save data
-    localStorage.setItem(TOKEN_KEY, JSON.stringify(data.response_content));
+    localStorage.setItem(TOKEN_KEY, JSON.stringify(data.token));
+    localStorage.setItem(USER_KEY, JSON.stringify(data.agent));
     // localStorage.setItem(USER_KEY, JSON.stringify(data.user));
 
     // redirect to dashboard
