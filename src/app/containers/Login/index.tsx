@@ -4,19 +4,18 @@
  *
  */
 
-import { Button, Form, Input, Switch, Typography } from 'antd';
+import { Button, Form, Input, Spin, Switch, Typography } from 'antd';
 import React, { memo } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components/macro';
 import colors from 'styles/colors';
 import { useInjectReducer, useInjectSaga } from 'utils/redux-injectors';
 
 import { loginSaga } from './saga';
-import { selectLogin } from './selectors';
-import { reducer, sliceKey } from './slice';
-const logoSrc = require('assets/images/logo.png');
+import { selectIsLoading, selectLoginStatus } from './selectors';
+import { actions, reducer, sliceKey } from './slice';
+const logoSrc = require('assets/images/logo-black.png');
 
 const backImage = require('assets/images/login.jpg');
 
@@ -57,18 +56,17 @@ export const Login = memo((props: Props) => {
   useInjectReducer({ key: sliceKey, reducer: reducer });
   useInjectSaga({ key: sliceKey, saga: loginSaga });
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const login = useSelector(selectLogin);
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const dispatch = useDispatch();
+  const isLoading = useSelector(selectIsLoading);
+  const loginStatus = useSelector(selectLoginStatus);
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { t, i18n } = useTranslation();
+  const dispatch = useDispatch();
 
   const year = new Date().getFullYear();
 
   const quote = quotes[Math.floor(Math.random() * quotes.length)];
-  const StyledLogo = styled.img``;
+
+  const handleLogin = ({ id, password }) =>
+    dispatch(actions.login({ id, password }));
 
   return (
     <>
@@ -76,7 +74,6 @@ export const Login = memo((props: Props) => {
         <title>Login</title>
         <meta name="description" content="Description of Login" />
       </Helmet>
-      {/* <Div>{t('')}</Div> */}
       <LoginPage>
         <LeftPanel>
           <StyledLogo src={logoSrc} />
@@ -86,46 +83,54 @@ export const Login = memo((props: Props) => {
               Entrez votre identifiant unique et votre mot de passe pour accéder
               à votre compte.
             </Paragraph>
-            <Form
-              name="basic"
-              initialValues={{ remember: true }}
-              layout="vertical"
-              // onFinish={onFinish}
-              // onFinishFailed={onFinishFailed}
-            >
-              <Form.Item
-                name="username"
-                label="Idenfiant unique"
-                rules={[
-                  {
-                    required: true,
-                    message: 'Veuillez saisir votre identifant unique',
-                  },
-                ]}
+            <Spin spinning={isLoading}>
+              <Form
+                name="basic"
+                initialValues={{ remember: true }}
+                layout="vertical"
+                onFinish={handleLogin}
+                // onFinishFailed={onFinishFailed}
               >
-                <Input />
-              </Form.Item>
-              <Form.Item
-                name="password"
-                label="Mot de passe"
-                rules={[
-                  {
-                    required: true,
-                    message: 'Veuillez saisir votre mot de passe',
-                  },
-                ]}
-              >
-                <Input.Password />
-              </Form.Item>
-              <Form.Item name="remember">
-                <Switch /> Rester connecté
-              </Form.Item>
-              <Form.Item>
-                <Button block type="primary" href="/dashboard">
-                  Se connecter
-                </Button>
-              </Form.Item>
-            </Form>
+                <Form.Item
+                  name="id"
+                  label="Idenfiant unique"
+                  rules={[
+                    {
+                      required: true,
+                      message: 'Veuillez saisir votre identifant unique',
+                    },
+                  ]}
+                >
+                  <Input />
+                </Form.Item>
+                <Form.Item
+                  name="password"
+                  label="Mot de passe"
+                  rules={[
+                    {
+                      required: true,
+                      message: 'Veuillez saisir votre mot de passe',
+                    },
+                  ]}
+                >
+                  <Input.Password />
+                </Form.Item>
+                <Form.Item name="remember">
+                  <Switch /> Rester connecté
+                </Form.Item>
+                <Form.Item>
+                  <Button block type="primary" htmlType="submit">
+                    Se connecter
+                  </Button>
+                </Form.Item>
+              </Form>
+            </Spin>
+            {loginStatus === 'error' && (
+              <Typography.Paragraph type="danger">
+                Impossible de se connecter, veuillez vérifier vos informations
+                de connexion
+              </Typography.Paragraph>
+            )}
           </FlexibleContainer>
           <div>© {year} DMP</div>
         </LeftPanel>
@@ -139,12 +144,10 @@ export const Login = memo((props: Props) => {
     </>
   );
 });
-// https://images.unsplash.com/photo-1542736667-069246bdbc6d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=80
-// https://images.unsplash.com/photo-1536064479547-7ee40b74b807?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=80
-// const backgroundImage =
-//   'https://images.unsplash.com/photo-1542736667-069246bdbc6d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=80';
 
-// const Div = styled.div``;
+const StyledLogo = styled.img`
+  width: 120px;
+`;
 
 const LoginPage = styled.div`
   display: flex;

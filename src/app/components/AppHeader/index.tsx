@@ -25,6 +25,7 @@ import {
 
 import { Container } from '../Container';
 import { IconBell } from '../customIcons';
+import authService from 'services/auth.service';
 
 const { Header } = Layout;
 const { Text } = Typography;
@@ -43,7 +44,11 @@ export const AppHeader = memo((props: Props) => {
 
       <Menu.Divider />
       <Menu.Item>
-        <Button icon={<LogoutOutlined />} type="primary">
+        <Button
+          type="primary"
+          icon={<LogoutOutlined />}
+          onClick={authService.logout}
+        >
           Me déconnecter
         </Button>
       </Menu.Item>
